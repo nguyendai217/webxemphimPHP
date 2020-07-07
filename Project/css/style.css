@@ -1,0 +1,560 @@
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap);
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.wrapper{
+    width: 1024px;
+    height: auto;
+    margin: auto;
+}
+.header{
+    width: 100%;
+    height: 78px;
+    background-color: #333333;
+}
+.menu-flim{
+    margin: auto;
+    width: 1024px;
+}
+/* .ul li a{
+    color: white;
+    text-decoration: none;
+} */
+/* .nav{
+    margin-top: 2px;
+    width: 100%;
+    height: 52px;
+    background-color:white;
+    border: 2px solid black;
+}
+
+.nav ul li{
+    float: left;
+    list-style: none;
+    margin-left: 12px;
+    padding-right: 12px;
+    line-height: 50px;
+   
+}
+.nav ul li .hideborder{
+    border-right: 0px;
+}
+.nav ul li a{
+    text-decoration: none;
+    line-height: 50px;
+    color: rgb(44, 202, 44);
+    font-size: 15px;
+    font-weight: bold;
+}
+.nav ul li a:hover{
+    color: rgb(20, 124, 25);
+}
+.nav li{
+    position: relative;
+}
+.nav>li a{
+    display: block;
+    text-transform: none;
+    padding: 10px;
+
+} */
+/* sub-menu */
+/* .sub-menu{
+    width: 200px;
+    
+} */
+/* .dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+} */
+
+/* .nav>li{ float: left; border-right: 1px solid #E8E8E8;}
+.nav li{ position: relative;}
+.nav>li a{display: block; text-transform: none; padding: 10px;}
+
+.nav li .sub_menu{
+    position: absolute; 
+    display: none;
+    width: 200px;
+    top: 0px;
+    left: 100%;
+}
+.nav li:hover>.sub_menu {
+     display: block;}
+.nav>li>.sub_menu{
+    top: 55px;position: absolute;
+left: 0px;} */
+
+/*----- Phần menu -----*/
+.menu {
+    width:100%;
+    margin:1px auto;
+    background:#f5f4f4;
+    height: 47px;
+
+}
+.menu li {
+    list-style:none;
+}
+.menu a {
+    transition:all linear 0.25s;
+    color:#158b15;
+    text-decoration:none;
+}
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#ffffff;
+} 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+} 
+
+.menu > ul > li {
+    display:inline-block;
+    position:relative;
+    font-size:17px;
+}
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    color:rgb(32, 109, 48);
+    font-weight: bold;
+}
+.current-item{
+    margin-left: -40px;
+}
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#272121;
+}
+/*----css cho menu con----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+.sub-menu {
+    width:130%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#746b6c;
+}
+
+
+.form-search{
+    margin-right: 10px;
+    float: right;
+    
+}
+.form-search form input{
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 38px;
+}
+.form-search .input-search{
+    width: 200px;
+   
+}
+.icon-search{
+    width: 35px;
+    height: 35px;
+    border-radius:5px ;
+}
+.trangchu{
+    margin-left: -25px;
+    color: darkgreen;
+}
+.login{
+    margin-right: 10px;
+    margin-top: 20px;
+    float: right;
+}
+.login span{
+    margin: 0.8px;
+    border-radius: 4px;
+    background-color: rgb(78, 76, 78);
+    padding: 6px;
+    float: left;
+    list-style: none;
+}
+.login span a{
+    text-decoration: none;
+    color: white;
+
+}
+.login span a:hover{
+    color: rgb(81, 187, 81);
+}
+
+.slider{
+    width: 100%;
+    height: 250px;
+    border: 1px solid black;
+}
+.slider-left{
+    float: left;
+    width: 70%;
+    height: 250px;
+    border: 1px solid black;
+}
+.carousel-item img{
+    height: 247px;
+    width: 100%;
+}
+.slider-right{
+    float: right;
+    width: 30%;
+    height: 250px;
+    background-color:#333333 ;
+    border: 1px solid black;
+}
+.slider-right img{
+    width: 100%;
+    height: 100%;
+}
+.danhmucphim .header-phimhot h4{
+    margin-left: 75px;
+    color: white;
+}
+.danh-muc ul{
+    list-style: none;
+}
+.main{
+    margin-top: 5px;
+    width: 100%;
+    height: 1400px;
+}
+.main-left{
+    padding-left: 2px;
+    float: left;
+    width: 69.9%;
+    height: 1400px;
+    color: rgb(53, 158, 114);
+    border: 1px solid black;
+}
+.group-phim{
+    width: 100%;
+    height: 295px;
+    margin-bottom: 25px;
+   
+}
+.motphim{
+    border: 1px solid white;
+    width: 24.8%;
+    margin: 0.5px;
+    height: 250px;
+    float: left;
+    background-color: #333333;
+    position: relative;
+}
+.viewphim{
+    
+    border-radius: 2px;
+    top: 1px;
+    left: 2px;
+    position: absolute;
+    width: 75px;
+    height: 30px;
+    background-color: rgb(233, 138, 138)
+}
+.viewphim p{
+    margin-left: 2px;
+    line-height: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.motphim img{
+    padding: 2px;
+    width: 100%;
+    height: 200px;
+    
+}
+.thongtin{
+    color: seashell;
+    text-align: center;
+}
+.thongtin a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.thongtin a:hover{
+    color: seagreen;
+}
+.imgheader img{
+    
+    height: 40px;
+}
+.imgheader a{
+    padding-top: 12px;
+    padding-right: 20px;
+    float: right;
+    color: rgb(81, 187, 81);
+    font-weight: bold;
+    text-decoration: none   ;
+}
+.imgheader a:hover{
+    color: darkgreen;
+}
+
+.main-right{
+    float: right;
+    width: 30%;
+    height: 1400px;
+    color: rgb(8, 8, 29);
+    border: 1px solid black;
+}
+.theloai{
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    margin: auto;
+    width: 100%;
+}
+.theloai .header-tl{
+    height: 40px;
+    border-bottom: 1px solid black;
+    
+}
+.theloai .header-tl span{
+    color: rgb(44, 177, 44);
+    font-weight: bold;
+    line-height: 40px;
+    padding-left: 37px;
+
+}
+.theloai ul li{
+    list-style: none;
+    margin-top: 5px;
+}
+.theloai ul li img{
+    width: 25px;
+    height: 25px;
+}
+.theloai ul li a{
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.theloai ul li a:hover{
+    color: darkgreen;
+}
+
+.group-phim-right{
+    width: 100%;
+    height: auto;
+    margin-top: 8px;
+}
+.header-right img{
+    height: 40px;
+}
+.phim-right{
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 95%;
+    height: 100px;
+}
+.phim-right img{
+    padding-bottom: 10px;
+    float: left;
+    width: 50%;
+    height: 100px;
+}
+.img-right img{
+    width: 40%;
+    height:100px;
+}
+.thongtinphim-right a,span{
+    margin-top: 5px;
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.footer{
+    background-color: #333333;
+    margin-top: 5px;
+    width: 100%;
+    height: 180px;
+    border: 1px solid black;
+}
+.footer-left{
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+.footer-left span{
+    color: white;
+    margin-left: 20px;
+}
+.footer-center{
+    float: left;
+    width: 55%;
+    height: 100%;
+}
+.hd-footer{
+    padding-top: 10px;
+    float: left;
+}
+.hd-footer ul li{
+    list-style: none;
+}
+.hd-footer ul li a{
+    color: white;
+    text-decoration: none;
+
+}
+.hd-footer ul li a:hover{
+    color: darkgreen;
+}
+.thongtin-footer{
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+
+}
+.logo-footer{
+    width: 200px;
+    height: 70px;
+    float: left;
+}
+.clear-both{
+    clear: both;
+}
+.footer-right{
+    float: right;
+    width: 20%;
+}
+.thongtin-footer table tr th{
+    color: white;
+}
+.thongtin-footer table tr td{
+    margin-left: -10px;
+}
+.thongtin-footer table tr td ul li{
+    list-style: none;
+
+}
+.thongtin-footer table tr td ul li a{
+    color: white;
+    text-decoration: none;
+}
+.thongtin-footer table tr td ul li a:hover{
+    color: rgb(81, 187, 81);
+}
+.design p{
+    margin-left: 300px;
+    margin-top: 22px;
+    color: white;
+}
+.form-phanhoi{
+    width: 200px;  
+}
+.form-phanhoi form span{
+    color: white;
+
+}
+.footer-right h5{
+    color: white;
+    font-size: 24px;
+}
+
+
+/* css thong tin phim */
+.chitietphim{
+    width: 100%;
+    height: 320px;
+
+}
+.chitietphim .imgheader img{
+    height: 30px;
+}
+.chitiet{
+    width: 100%;
+    height: 300px;
+    border-bottom: 1px solid black;
+}
+.img-phim{
+    float: left;
+    width: 300px;
+}
+.chitiet .img-phim img{
+    width: 300px;
+    height: 250px;
+    
+}
+.play{
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.img-phim .play img{
+    width: 100px;
+    height: 30px;
+}
+.chitiet .thongtinphim{
+    float: right;
+    width:405px ;
+    height: 300px;
+    background-color:#333;
+}
+.thongtinphim span{
+    margin-top: 10px;
+    margin-left: 15px;
+    color: white;
+}
+
+.noidungphim{
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+}
+.imgheader{
+    width: 100%;
+}
+.noidungphim .imgheader img{
+    height: 35px;
+}
+.ndphim{
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+}
+.ndphim .imgnd{
+    width: 98%;
+    height: 350px;
+}
+.binhluan{
+    width: 100%;
+    height: 200px;
+    background-color: burlywood;
+}
+.phimcungtheloai{
+    width: 100%;
+    height:300px ;
+}
