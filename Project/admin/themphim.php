@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include('../lib_db.php');
+$sql= "select*from theloai";
+$row= select_list($sql);
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -41,7 +46,9 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <li class="text-center"></li>
+                    <li class="text-center">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                    </li>
                     <li>
                         <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -69,38 +76,64 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Table Examples</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
-                       
+                     <h2>Thêm phim mới</h2>   
+                        <h5>Welcome Jhon Deo , Love to see you back. </h5>  
                     </div>
                 </div>
                  <!-- /. ROW  -->
                  <hr />
                  <div class="row">
-                     <div class="col-md-12">
+                     <div class="col-md-2"></div>
+                     <div class="col-md-8">
                         <form role="form">
                             <div class="form-group">
-                                <label>Text Input</label>
+                                <label>Tên phim</label>
                                 <input class="form-control" />
-                                <p class="help-block">Help text here.</p>
                             </div>
                             <div class="form-group">
-                                <label>Text Input with Placeholder</label>
-                                <input class="form-control" placeholder="PLease Enter Keyword" />
+                                <label>Đạo diễn</label>
+                                <input class="form-control"  />
                             </div>
                             <div class="form-group">
-                                <label>File input</label>
+                                <label>Diễn Viên</label>
+                                <input class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Thời lượng phim</label>
+                                <input class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Năm sản xuất</label>
+                                <input class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Nơi sản xuất</label>
+                                <input class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Thể loại</label>
+                                <select name="add_tl">
+                                    <option>Tuỳ chọn</option>
+                                <?php foreach($row as $rs) { ?>   
+                                <option value="<?php echo $rs['id_theloai']?>"><?php echo $rs['theloai']?></option>
+                                <?php }?>
+                            
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phim</label>
                                 <input type="file" />
                             </div>
                             <div class="form-group">
-                                <label>Text area</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <label>Nội dung phim</label>
+                                <textarea class="form-control" rows="4"></textarea>
                             </div>
-                            
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-                            <button type="reset" class="btn btn-primary">Reset Button</button>
-
+                            <input type="submit" class="btn btn-success" value="Thêm">
+                            <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
                         </form>
                      </div>
                  </div>
@@ -123,11 +156,12 @@
      <!-- DATA TABLE SCRIPTS -->
     <script src="assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
+       <script>
+        function cancle(){
+	        window.location = 'themphim.php';
+	        return false;
+        }
+</script>
          <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     

@@ -14,8 +14,6 @@
    $user = 0;
    if (isset($_REQUEST["username"])){
        $sql ="select * from users  where username='{$username}'";
-       //echo "sql=[$sql]"; exit();
-       //2.1.2 Thuc thi sql
        $user = select_one($sql);
        //print_r($user);exit();
        //co user

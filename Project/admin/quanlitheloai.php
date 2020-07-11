@@ -46,7 +46,9 @@ $row= select_list($sql);
       <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
           <ul class="nav" id="main-menu">
-            <li class="text-center"></li>
+            <li class="text-center">
+            <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+            </li>
             <li>
               <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
@@ -82,8 +84,12 @@ $row= select_list($sql);
           <hr />
           <div class="row">
           <div class="col-md-1"></div>
-          <div class="col-md-10">
-            <button class="btn btn-success" >Thêm thể loại</button>
+          <div class="col-md-5">
+            <h4 style="color: green;">Thêm thể loại</h4>
+            <form action="">
+            <input style="height: 34px;width: 250px;" type="text" name="addtheloai" placeholder="Tên thể loại..">
+            <input type="submit" class="btn btn-success" value="Thêm" >
+            </form>
           </div>
         </div>
         <br>
