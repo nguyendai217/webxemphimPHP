@@ -3,18 +3,15 @@ include('page/header.php');
 include('page/menu.php');
 include('page/slider.php');
 include('lib_db.php');
-$sql="select* from phim where id_theloai='$tl'";
+$search= $_GET['search'];
+$sql="select* from phim where tenphim like '%$search%' or dienvien like '%$search%' or tags like '%$search%'";
 $result= select_list($sql);
-
-$sql1= "select * from theloai where id_theloai='$tl'";
-$row= select_one($sql1);
-
 ?>
 <div class="main">
   <div class="main-left">
     <div class="group-phim">
       <div class="imgheader">
-        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> THỂ LOẠI : <?php echo $row["theloai"] ?></h5>
+        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> THỂ LOẠI</h5>
         
       </div>
       <?php foreach($result as $rs) {?>

@@ -17,14 +17,6 @@ $result = select_list($sql);
         }?>
         </ul>
       </li>
-      <li><a href="#">Quốc gia <span class="arrow">&#9660;</span></a>
-        <ul class="sub-menu">
-          <li><a href="#">Phim Mỹ</a></li>
-          <li><a href="#">Phim Hàn Quốc</a></li>
-          <li><a href="#">Phim Việt Nam</a></li>
-          <li><a href="#">Phim Thái Lan</a></li>
-        </ul>
-      </li>
       <li><a href="#">Năm sản xuất<span class="arrow">&#9660;</span></a>
         <ul class="sub-menu">
           <li><a href="#">2020</a></li>

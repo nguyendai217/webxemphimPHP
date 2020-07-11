@@ -1,22 +1,44 @@
 <?php
-   include("./lib_db.php");
-   session_start();
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form    
-      $myusername = mysqli_real_escape_string($connect,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($connect,$_POST['password']); 
-      
-      $sql = "SELECT id_user FROM users WHERE username = '$myusername' and password= '$mypassword'";
-      $result = mysqli_query($connect,$sql);
-      $row = mysqli_fetch_array($result);
-      $count = mysqli_num_rows($result);		
-      if($count == 1) {
-         $_SESSION['login_user'] = $myusername;
-         header("location:../admin/index.html ");
-      }else {
-         echo("Your Login Name or Password is invalid");
-      }
+   include("lib_db.php");
+   include("checklogin.php");
+   $user = getLoggedUser();
+   if ($user) {
+       header("Location:../admin/index.php");
+       exit();
    }
+   $username = isset($_REQUEST["username"]) ? $_REQUEST["username"] : "";
+   $password = isset($_REQUEST["password"]) ? $_REQUEST["password"] : "";
+   
+   $error = '';
+   $checkLogin = 1;
+   $user = 0;
+   if (isset($_REQUEST["username"])){
+       $sql ="select * from users  where username='{$username}'";
+       //echo "sql=[$sql]"; exit();
+       //2.1.2 Thuc thi sql
+       $user = select_one($sql);
+       //print_r($user);exit();
+       //co user
+       if (!$user){
+           //thuc hien co user o day
+           $checkLogin = 0;
+           $error = 'Khong ton tai username';
+       }else{
+           //kiem tra pass
+           if (md5($password) != $user['password']){
+               $checkLogin = 0;
+               $error = 'Password khong dung';
+           }
+       }
+       //dung
+       if ($checkLogin){
+           setLoggedUser($user);
+           session_start();
+           $_SESSION['user'] = $user;
+           header("Location:../admin/index.php");
+           exit();
+       }
+    }                                                                                                                                                                                                                               
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +59,9 @@
         <h2 class="login-title">- Please Login -</h2>
         <div class="panel panel-default">
             <div class="panel-body">
+            <?php  if ($error){ ?>
+				<li><?php echo $error ;?></li>
+				<?php } ?>
                 <form method="POST">
                     <div class="input-group login-userinput">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -54,7 +79,7 @@
                     <input class="btn btn-primary btn-block login-button" value="Đăng nhập" type="submit" id="btnlogin">
                         </input>
                     <div class="checkbox login-options">
-                        <a href="./index.php">Trở về trang chủ.</a>
+                        <a href="../index.php">Trở về trang chủ.</a>
                         <a href="register.php" class="login-forgot">Chưa có tài khoản, đăng kí ?</a>
                     </div>
                 </form>

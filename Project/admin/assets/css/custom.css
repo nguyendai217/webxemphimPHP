@@ -198,22 +198,28 @@ color: #8d8888;
 
 
 .user-image {
-    margin: 25px auto;
+margin: 15px auto;
 -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
 border-radius: 10px;
-max-height:170px;
-max-width:170px;
+max-height:100px;
+max-width:100px;
 }
 
 .navbar-cls-top .navbar-brand {
-	color: #fff;
+color: #fff;
 background: #07a51c;
 width: 260px;
 text-align: center;
 height: 60px;
 font-size: 30px;
 font-weight: 700;
+}
+.navbar-brand img{
+    width: 113%;
+    height: 215%;
+    margin-left: -15px;
+    margin-top: -16px;
 }
 .active-menu {
     background-color:#1bad07!important;

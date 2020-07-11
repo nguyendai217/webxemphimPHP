@@ -3,8 +3,8 @@
 <?php include('page/slider.php') ?>
 <?php include('lib_db.php') ?>
 <?php
-$_get = $_GET['id_phim'];
-$sql = "Select *from phim,theloai where phim.id_theloai=theloai.id_theloai and phim.id_phim='$_get'";
+$phim = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
+$sql = "Select *from phim,theloai where phim.id_theloai=theloai.id_theloai and phim.id_phim={$phim}";
 $row = select_one($sql);
 
 ?>

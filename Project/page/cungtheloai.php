@@ -1,6 +1,10 @@
 <?php
 include("./lib_db.php");
-$sql = "Select *from phim,theloai where phim.id_theloai=theloai.id_theloai  and theloai.id_theloai=$_get ORDER by soluotxem desc limit 0,4";
+$phim = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
+
+$tl= "select id_theloai from phim where id_phim=$phim";
+$kq= select_one($tl);
+$sql = "Select *from phim,theloai where phim.id_theloai=theloai.id_theloai  and theloai.id_theloai={$kq["id_theloai"]} ORDER by soluotxem desc limit 0,4";
 $result = select_list($sql);
 ?>
 <div class="phimcungtheloai">

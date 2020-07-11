@@ -4,7 +4,7 @@ include('page/menu.php');
 include('page/slider.php');
 include('lib_db.php');
 
-$_get=$_GET['id_phim'];
+$_get=isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
 $sql="Select * from phim where id_phim='$_get'";
 $row= select_one($sql);
 
@@ -14,7 +14,7 @@ $update= exec_update($sql2);
 <div class="main">
       <div class="main-left">
         <h3 style="margin-left: 10px;margin-top: 10px;">Tên phim :<?php echo $row["tenphim"] ?></h3>
-        <video width="700" height="400" controls autoplay>
+        <video width="710" height="400" controls autoplay>
           <source src="<?php echo $row['linkphim']?>" type="video/mp4">
         </video>
       </div>

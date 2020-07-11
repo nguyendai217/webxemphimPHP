@@ -21,15 +21,14 @@
         <a href="index.php"><img src="image/logo.png" alt="" style="margin-top:10px;" /></a>
         <div class="login">
           <span>
-            <a href="login/login.php">Đăng nhập</a>
+            <a href="login/login.php"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập</a>
           </span>
         </div>
         <div class="form-search">
           <form action="./timkiem.php" method="GET">
-            <input class="input-search" type="text" name="tukhoa" placeholder="Tìm kiếm.." />
-            <input type="submit">
-            
-          </form>
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search fa-lg"></i></button>
+            </form>
         </div>
       </div>
     </div>

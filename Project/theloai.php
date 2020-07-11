@@ -3,11 +3,12 @@ include('page/header.php');
 include('page/menu.php');
 include('page/slider.php');
 include('lib_db.php');
-$tl=$_GET['id_theloai'];
-$sql="select* from phim where id_theloai='$tl'";
+$tl = isset($_REQUEST["id_theloai"]) ? $_REQUEST["id_theloai"] : 0;
+//$tl=$_GET['id_theloai'];
+$sql="select* from phim where id_theloai={$tl}";
 $result= select_list($sql);
 
-$sql1= "select * from theloai where id_theloai='$tl'";
+$sql1= "select * from theloai where id_theloai={$tl}";
 $row= select_one($sql1);
 
 ?>

@@ -26,6 +26,6 @@
     </div>
   </div>
   <div class="slider-right">
-    <img src="image/add-fb.png" alt="">
+  <iframe src="https://www.youtube.com/embed/_qyw6LC5pnE?start=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
