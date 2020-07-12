@@ -1,6 +1,7 @@
 ﻿ <?php
 include("../lib_db.php");
 include("../login/checklogin.php");
+session_start();
 $user = checkLoggedUser();
 ?> 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ $user = checkLoggedUser();
                     float: right;
                     border-radius: 2px;
                     font-size: 16px;">
-                    <a href="#" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a> 
+                    <a href="logout.php" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a> 
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -48,7 +49,7 @@ $user = checkLoggedUser();
                 <ul class="nav" id="main-menu">
                     <li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-                    <p>Xin chào :<?php echo $user['username']?>!</p>
+                    <p>Xin chào :<?php echo $user['username']?> !</p>
                     </li>
                     <li>
                         <a class="active-menu" href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
@@ -89,7 +90,7 @@ $user = checkLoggedUser();
                             <span class="icon-box bg-color-red set-icon">
                                 <i class="fa fa-film"></i>
                             </span>
-                            <a href="#" class="text">Quản lí phim</a>
+                            <a href="quanliphim.php" class="text">Quản lí phim</a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">
@@ -97,7 +98,7 @@ $user = checkLoggedUser();
                             <span class="icon-box bg-color-green set-icon">
                                 <i class="fa fa-bars"></i>
                             </span>
-                             <a href="#" class="text">Quản lí thể loại</a>   
+                             <a href="quanlitheloai.php" class="text">Quản lí thể loại</a>   
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">
@@ -105,7 +106,7 @@ $user = checkLoggedUser();
                             <span class="icon-box bg-color-blue set-icon">
                                 <i class="fa fa-comments"></i>
                             </span>
-                            <a href="#" class="text">Quản lí bình luận</a>
+                            <a href="quanlibinhluan.php" class="text">Quản lí bình luận</a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">
@@ -113,7 +114,7 @@ $user = checkLoggedUser();
                             <span class="icon-box bg-color-brown set-icon">
                                 <i class="fa fa-user"></i>
                             </span>
-                            <a href="#" class="text">Quản lí user</a>
+                            <a href="quanliusers.php" class="text">Quản lí user</a>
                         </div>
                     </div>
                 </div>

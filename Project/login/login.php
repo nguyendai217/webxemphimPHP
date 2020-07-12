@@ -2,7 +2,7 @@
    include("lib_db.php");
    include("checklogin.php");
    $user = getLoggedUser();
-   if ($user) {
+   if ($user && $user['role']==1) {
        header("Location:../admin/index.php");
        exit();
    }
@@ -16,27 +16,41 @@
        $sql ="select * from users  where username='{$username}'";
        $user = select_one($sql);
        //print_r($user);exit();
-       //co user
+       // k co user
        if (!$user){
            //thuc hien co user o day
            $checkLogin = 0;
            $error = 'Khong ton tai username';
        }else{
            //kiem tra pass
-           if (md5($password) != $user['password']){
-               $checkLogin = 0;
-               $error = 'Password khong dung';
-           }
-       }
-       //dung
-       if ($checkLogin){
-           setLoggedUser($user);
-           session_start();
-           $_SESSION['user'] = $user;
-           header("Location:../admin/index.php");
-           exit();
-       }
-    }                                                                                                                                                                                                                               
+        if ($checkLogin){
+            // echo $password;
+            if(md5($password)!=$user['password'])
+            {
+                $checkLogin = 0;
+                $error = 'Password khong dung';
+            }
+            else
+            {
+                setLoggedUser($user);
+                session_start();
+                $_SESSION['user'] = $user;
+                $_SESSION['role'] = $user['role'];
+                if($user['role']==1)
+                {
+                    header("Location:../admin/index.php");
+                    exit();
+                }
+                if($user['role']==0)
+                {
+                     header("Location:../index.php");
+                     exit();
+                }
+
+            }     
+       } 
+    }         
+}                                                                                                                                                                                                                      
 ?>
 <!DOCTYPE html>
 <html lang="en">

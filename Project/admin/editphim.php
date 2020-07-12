@@ -1,10 +1,14 @@
-﻿<?php
+<?php
 include("../lib_db.php");
 include("../login/checklogin.php");
-session_start();
+
+$id = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : "";
 $user = checkLoggedUser();
-$sql= "select*from theloai";
-$row= select_list($sql);
+$sql="select * from phim where id_phim='{$id}'";
+$row= select_one($sql);
+session_start();
+$sql2= "select*from theloai";
+$row= select_list($sql2);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

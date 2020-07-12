@@ -1,5 +1,8 @@
 ﻿<?php
-include('../lib_db.php');
+include("../lib_db.php");
+include("../login/checklogin.php");
+session_start();
+$user = checkLoggedUser();
 
 $sql= "select*from phim";
 $row= select_list($sql);
@@ -50,6 +53,7 @@ $row= select_list($sql);
                     <ul class="nav" id="main-menu">
                         <li class="text-center">
                         <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                        <p>Xin chào :<?php echo $user['username']?>!</p>
                         </li>
                         <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
@@ -150,9 +154,6 @@ $row= select_list($sql);
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();

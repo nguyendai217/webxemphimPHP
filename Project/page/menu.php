@@ -25,8 +25,8 @@ $result = select_list($sql);
           <li><a href="#">2017</a></li>
         </ul>
       </li>
-      <li><a href="#">Phim Hot</a></li>
-      <li><a href="#">Liên hệ</a></li>
+      <li><a href="phimhot.php">Phim Hot</a></li>
+      <li><a href="lienhe.php">Liên hệ</a></li>
     </ul>
   </nav>
 </div>

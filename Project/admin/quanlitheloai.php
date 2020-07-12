@@ -1,6 +1,8 @@
 ﻿<?php
-include('../lib_db.php');
-
+include("../lib_db.php");
+include("../login/checklogin.php");
+session_start();
+$user = checkLoggedUser();
 $sql= "select*from theloai";
 $row= select_list($sql);
 
@@ -48,6 +50,7 @@ $row= select_list($sql);
           <ul class="nav" id="main-menu">
             <li class="text-center">
             <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+            <p>Xin chào :<?php echo $user['username']?>!</p>
             </li>
             <li>
               <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
@@ -86,8 +89,8 @@ $row= select_list($sql);
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <h4 style="color: green;">Thêm thể loại</h4>
-            <form action="">
-            <input style="height: 34px;width: 250px;" type="text" name="addtheloai" placeholder="Tên thể loại..">
+            <form method="POST" action="addtheloai.php">
+            <input style="height: 34px;width: 250px;" type="text" name="theloai" placeholder="Tên thể loại..">
             <input type="submit" class="btn btn-success" value="Thêm" >
             </form>
           </div>
@@ -117,8 +120,8 @@ $row= select_list($sql);
                                 <tr>
                                   <td><?php echo $rs['id_theloai']?></td>
                                   <td><?php echo $rs['theloai']?></td>
-                                  <td><a style="font-size: 20px;" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                  <td><a style="font-size: 20px; color: brown;" href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                  <td><a style="font-size: 20px;" href="edittheloai.php?id_theloai=<?php echo $rs['id_theloai']?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                                  <td><a style="font-size: 20px;color: brown; " href="xoatheloai.php?id_theloai=<?php echo $rs['id_theloai']?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>   
                               </tr>
                               <?php 
                             }?>

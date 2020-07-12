@@ -54,7 +54,7 @@ $result2= select_list($sql2);
         <img src="<?php echo $rs2["anhminhhoa"] ?>" alt="" class="hvr-shrink">
       </a>
       <div class="thongtinphim-right">
-        <a href="thongtinphim.php?id_phim=<?php echo $rs2["id_phim"] ?>"><?php echo $rs2["tenphim"]?></a>
+        <a href="thongtinphim.php?id_phim=<?php echo $rs2["id_phim"] ?>"><?php echo $rs2["tenphim"]?></a><br>
         <span>Views: <?php echo $rs2["soluotxem"]?></span><br>
         <span>Thời gian:<?php echo $rs2["thoiluongphim"]?> </span>
       </div>

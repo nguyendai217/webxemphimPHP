@@ -1,10 +1,11 @@
-﻿<?php
+<?php
 include("../lib_db.php");
 include("../login/checklogin.php");
 session_start();
+$theloai = isset($_REQUEST["id_theloai"]) ? $_REQUEST["id_theloai"] : "";
 $user = checkLoggedUser();
-$sql= "select*from theloai";
-$row= select_list($sql);
+$sql="select * from theloai where id_theloai='{$theloai}'";
+$row= select_one($sql);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -80,7 +81,7 @@ $row= select_list($sql);
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Thêm phim mới</h2>   
+                     <h2>Chỉnh sửa thể loại</h2>   
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>  
                     </div>
                 </div>
@@ -89,78 +90,32 @@ $row= select_list($sql);
                  <div class="row">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
-                        <form role="form">
+                        <form action="edittheloai_exec.php" method="POST">
                             <div class="form-group">
-                                <label>Tên phim</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Đạo diễn</label>
-                                <input class="form-control"  />
-                            </div>
-                            <div class="form-group">
-                                <label>Diễn Viên</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Thời lượng phim</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Năm sản xuất</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Nơi sản xuất</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Tags</label>
-                                <input class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label>Thể loại</label>
-                                <select name="add_tl">
-                                    <option>Tuỳ chọn</option>
-                                <?php foreach($row as $rs) { ?>   
-                                <option value="<?php echo $rs['id_theloai']?>"><?php echo $rs['theloai']?></option>
-                                <?php }?>
-                            
-                            </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Ảnh phim</label>
-                                <input type="file" />
-                            </div>
-                            <div class="form-group">
-                                <label>Nội dung phim</label>
-                                <textarea class="form-control" rows="4"></textarea>
+                                <label >Tên Thể Loại</label>
+                                <input class="hidden" name="id_theloai" value="<?php echo $row['id_theloai']?>">
+                                <input class="form-control" name="tentheloai" value="<?php echo $row['theloai']?>"/>
                             </div>
                             <input type="submit" class="btn btn-success" value="Thêm">
                             <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
                         </form>
                      </div>
                  </div>
-               
-            
-        </div>
-               
+        </div>          
     </div>
     </div>
-
-    <!-- JQUERY SCRIPTS -->
+     
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-       <script>
+    <script>
         function cancle(){
-	        window.location = 'themphim.php';
+	        window.location = 'quanlitheloai.php';
 	        return false;
         }
-</script>
-         <!-- CUSTOM SCRIPTS -->
+    </script>
     <script src="assets/js/custom.js"></script>
     
    

@@ -1,6 +1,8 @@
 ﻿<?php
-include('../lib_db.php');
-
+include("../lib_db.php");
+include("../login/checklogin.php");
+session_start();
+$user = checkLoggedUser();
 $sql= "select*from users";
 $row= select_list($sql);
 
@@ -49,6 +51,7 @@ $row= select_list($sql);
                     <ul class="nav" id="main-menu">
                         <li class="text-center">
                         <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                        <p>Xin chào :<?php echo $user['username']?>!</p>
                         </li>
                         <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
@@ -124,7 +127,7 @@ $row= select_list($sql);
                                   <td><?php echo $rs['diachi']?></td>
                                   <td><?php echo $rs['dienthoai']?></td>
                                   <td><?php echo $rs['email']?></td>
-                                  <th>Role</th>
+                                  <th><?php echo $rs['role']?></th>
                                   <td><a style="font-size: 20px;" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                                   <td><a style="font-size: 20px; color: brown;" href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                               </tr>
@@ -143,12 +146,6 @@ $row= select_list($sql);
       </div>
             <!-- /. PAGE WRAPPER  -->
         </div>
-        <!-- /. WRAPPER  -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>

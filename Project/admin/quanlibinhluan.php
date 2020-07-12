@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include("../lib_db.php");
+include("../login/checklogin.php");
+session_start();
+$user = checkLoggedUser();
+
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -42,6 +49,7 @@
                     <ul class="nav" id="main-menu">
                         <li class="text-center">
                         <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                        <p>Xin chào :<?php echo $user['username']?>!</p>
                         </li>
                         <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
@@ -94,9 +102,6 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     

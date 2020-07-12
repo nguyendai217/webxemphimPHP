@@ -40,6 +40,11 @@ body {
 
 .text-center {
     text-align:center;
+    color: white;
+}
+.text-center p{
+    color: white;
+    font-size: 20px;
 }
 .no-boder {
     border:1px solid #f3f3f3;

@@ -4,13 +4,12 @@ include("../login/checklogin.php");
 session_start();
 $user = checkLoggedUser();
 //get input
-$theloai = isset($_REQUEST["theloai"]) ? $_REQUEST["theloai"] : "";
+$id_theloai = isset($_REQUEST["id_theloai"]) ? $_REQUEST["id_theloai"] : "";
 //tao sql
-$sql = "insert into theloai(theloai) value('{$theloai}') ";
+$sql = "delete from theloai where id_theloai='{$id_theloai}' ";
 //echo "sql=[$sql]"; exit();
 //Thuc thi sql
 $ret = exec_update($sql);
 header("Location:quanlitheloai.php");
 exit();
 ?>
-

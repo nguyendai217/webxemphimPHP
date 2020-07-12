@@ -1,3 +1,12 @@
+<?php
+include('./lib_db.php');
+include('./login/checklogin.php');
+session_start();
+// $user = checkLoggedUser();
+if($_SESSION['user']){
+  $user= $_SESSION['user'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +29,12 @@
       <div class="logo">
         <a href="index.php"><img src="image/logo.png" alt="" style="margin-top:10px;" /></a>
         <div class="login">
-          <span>
-            <a href="login/login.php"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập</a>
-          </span>
+          <?php if(!$user){ ?>
+          <span><a href="login/login.php"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập</a></span>
+          <?php }?>
+          <?php if($user){ ?>
+          <span><a href="login/logout.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo $user['username']?>,Logout</a></span>
+          <?php }?>
         </div>
         <div class="form-search">
           <form action="./timkiem.php" method="GET">
