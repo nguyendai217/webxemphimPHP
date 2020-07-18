@@ -2,9 +2,9 @@
 include("../lib_db.php");
 include("../login/checklogin.php");
 session_start();
-$theloai = isset($_REQUEST["id_theloai"]) ? $_REQUEST["id_theloai"] : "";
+$id_user = isset($_REQUEST["id_user"]) ? $_REQUEST["id_user"] : "";
 $user = checkLoggedUser();
-$sql="select * from theloai where id_theloai='{$theloai}'";
+$sql="select * from users where id_user='{$id_user}'";
 $row= select_one($sql);
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ $row= select_one($sql);
                          <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                      </li>
                      <li>
-                         <a class="active-menu" href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
+                         <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
                      </li>
                      <li>
                          <a href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
@@ -70,7 +70,7 @@ $row= select_one($sql);
                          <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
-                         <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
+                         <a class="active-menu" href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
                      </li>
                      <li>
                          <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
@@ -84,7 +84,7 @@ $row= select_one($sql);
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Chỉnh sửa thể loại</h2>   
+                     <h2>Chỉnh sửa Users</h2>   
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>  
                     </div>
                 </div>
@@ -93,11 +93,35 @@ $row= select_one($sql);
                  <div class="row">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
-                        <form action="edittheloai_exec.php" method="POST">
+                        <form action="edit_user_exce.php" method="POST">
+                            <input class="hidden" name="id_user" value="<?php echo $row['id_user']?>">
                             <div class="form-group">
-                                <label >Tên Thể Loại</label>
-                                <input class="hidden" name="id_theloai" value="<?php echo $row['id_theloai']?>">
-                                <input class="form-control" name="tentheloai" value="<?php echo $row['theloai']?>"/>
+                                <label >Họ tên</label>
+                                <input class="form-control" name="hoten" value="<?php echo $row['hovaten']?>"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Username</label>
+                                <input class="form-control" name="username" value="<?php echo $row['username']?>"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Địa chỉ</label>
+                                <input class="form-control" name="diachi" value="<?php echo $row['diachi']?>"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Điện thoại</label>
+                                <input class="form-control" name="dienthoai" value="<?php echo $row['dienthoai']?>"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Email</label>
+                                <input class="form-control" name="email" value="<?php echo $row['email']?>"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Role</label>
+                                <select name="role">
+                                    <option>Tùy chọn</option>
+                                    <option value="1">Admin</option>
+                                    <option value="0">User</option>
+                                </select>
                             </div>
                             <input type="submit" class="btn btn-success" value="Thêm">
                             <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
@@ -115,7 +139,7 @@ $row= select_one($sql);
     <script src="assets/js/jquery.metisMenu.js"></script>
     <script>
         function cancle(){
-	        window.location = 'quanlitheloai.php';
+	        window.location = 'quanliuser.php';
 	        return false;
         }
     </script>

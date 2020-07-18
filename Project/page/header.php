@@ -3,7 +3,8 @@ include('./lib_db.php');
 include('./login/checklogin.php');
 session_start();
 // $user = checkLoggedUser();
-if($_SESSION['user']){
+$user= isset($_SESSION['user']);
+if($user){
   $user= $_SESSION['user'];
 }
 ?>

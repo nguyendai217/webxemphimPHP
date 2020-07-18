@@ -46,7 +46,7 @@ $row = select_one($sql);
             </div>
             <div class="ndphim">
                 <p><?php echo $row["thongtinphim"] ?></p>
-                <img src="image/imgnd.png" alt="" class="imgnd">
+                <img src="<?php echo $row["imagenoidung"] ?>" alt="" class="imgnd">
             </div>
             <div class="binhluan">
                 Bình luận

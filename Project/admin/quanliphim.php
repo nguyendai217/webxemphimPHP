@@ -37,7 +37,7 @@ $row= select_list($sql);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">Binary admin</a>
+                    <a class="navbar-brand" href="index.php"><img src="../image/logo.png" alt=""></a>
                 </div>
                 <div style="color: white;
                       padding: 15px 50px 5px 50px;
@@ -50,31 +50,33 @@ $row= select_list($sql);
             </nav>
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
-                    <ul class="nav" id="main-menu">
-                        <li class="text-center">
-                        <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-                        <p>Xin chào :<?php echo $user['username']?>!</p>
-                        </li>
-                        <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="quanlitheloai.php"><i class="fa fa-desktop fa-3x"></i> Quản lí thể loại</a>
-                        </li>
-                        <li>
-                            <a class="active-menu" href="quanliphim.php"><i class="fa fa-qrcode fa-3x"></i> Quản lí
-                                phim</a>
-                        </li>
-                        <li>
-                            <a href="quanlibinhluan.php"><i class="fa fa-bar-chart-o fa-3x"></i>Quản lí bình luận </a>
-                        </li>
-                        <li>
-                            <a href="themphim.php"><i class="fa fa-table fa-3x"></i> Thêm phim mới</a>
-                        </li>
-                        <li>
-                            <a href="quanliusers.php"><i class="fa fa-edit fa-3x"></i> Quản lí users </a>
-                        </li>
-                    </ul>
+                <ul class="nav" id="main-menu">
+                     <li class="text-center">
+                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
+                         <p>Xin chào :<?php echo $user['username'] ?> !</p>
+                     </li>
+                     <li>
+                         <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                     </li>
+                     <li>
+                         <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
+                     </li>
+                     <li>
+                         <a class="active-menu" href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
+                     </li>
+                     <li>
+                         <a  href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
+                     </li>
+                     <li>
+                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                     </li>
+                     <li>
+                         <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
+                     </li>
+                     <li>
+                         <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
+                     </li>
+                 </ul>
                 </div>
 
             </nav>
@@ -91,7 +93,7 @@ $row= select_list($sql);
                     <hr />
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn btn-success">Thêm phim mới</button>
+                            <a  href="themphim.php" class="btn btn-success">Thêm Phim Mới</a>
                         </div>
                     </div>
                     <br>
@@ -110,7 +112,6 @@ $row= select_list($sql);
                                                       <th>ID</th>
                                                       <th>Hình ảnh</th>
                                                       <th>Tên Phim</th>
-                                                      <th>Thể Loại</th>
                                                       <th>Nội dung</th>
                                                       <th>Số lượt xem</th>
                                                       <th>Chi tiết</th>
@@ -124,11 +125,10 @@ $row= select_list($sql);
                                                       <td><?php echo $rs['id_phim']?></td>
                                                       <td><img src=".<?php echo $rs['anhminhhoa'] ?>" alt="" height="80" width="80"></td>
                                                       <td><?php echo $rs['tenphim']?></td>
-                                                      <td><?php echo $rs['id_theloai']?></td>
                                                       <td><?php echo substr ($rs['thongtinphim'],0,50)?>...</td>
                                                       <td><?php echo $rs['soluotxem']?></td>
                                                       <td><a href="" style="font-size: 20px;"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-                                                      <td><a href="" style="font-size: 20px;"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                                                      <td><a style="font-size: 20px;" href="editphim.php?id_phim=<?php echo $rs['id_phim']?>"><i class="fa fa-edit" ></i></a></td>
                                                       <td><a href="" style="font-size: 20px;color: red;"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                                                   </tr>
                                               <?php }?>
