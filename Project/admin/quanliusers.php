@@ -65,7 +65,7 @@ $row = select_list($sql);
                          <a  href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
                      </li>
                      <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
                          <a class="active-menu" href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
@@ -130,7 +130,7 @@ $row = select_list($sql);
                                                         <td><?php echo $rs['password'] ?></td>
                                                         <th><?php echo $rs['role'] ?></th>
                                                         <td><a style="font-size: 20px;" href="edit_user.php?id_user=<?php echo $rs['id_user'] ?>"><i class="fa fa-pencil-square-o"></i></a></td>
-                                                        <td><a style="font-size: 20px;color: brown; " href="xoa_user.php?id_user=<?php echo $rs['id_user'] ?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
+                                                        <td><a style="font-size: 20px;color: brown; " href="delete_user.php?id_user=<?php echo $rs['id_user'] ?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
                                                     </tr>
                                                 <?php
                                                 } ?>

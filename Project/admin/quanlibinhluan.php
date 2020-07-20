@@ -64,7 +64,7 @@ $user = checkLoggedUser();
                          <a class="active-menu" href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
                      </li>
                      <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
                          <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>

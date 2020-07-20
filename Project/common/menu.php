@@ -25,6 +25,14 @@ $result = select_list($sql);
           <li><a href="#">2017</a></li>
         </ul>
       </li>
+      <li><a href="#">Quốc gia<span class="arrow">&#9660;</span></a>
+        <ul class="sub-menu">
+          <li><a href="#">Phim Mỹ</a></li>
+          <li><a href="#">Phim Trung Quốc</a></li>
+          <li><a href="#">Phim Việt Nam</a></li>
+          <li><a href="#">Phim Hàn Quốc</a></li>
+        </ul>
+      </li>
       <li><a href="phimhot.php">Phim Hot</a></li>
       <li><a href="lienhe.php">Liên hệ</a></li>
     </ul>

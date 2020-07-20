@@ -1,14 +1,14 @@
-<?php
+﻿<?php
 include("../lib_db.php");
 include("../login/checklogin.php");
+include("utils.php");
 session_start();
-$id = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : "";
 $user = checkLoggedUser();
-$sql = "select * from phim where id_phim='{$id}'";
-$row = select_one($sql);
+$sql = "select*from theloai";
+$row = select_list($sql);
 
-$sql2 = "select*from theloai";
-$row2 = select_list($sql2);
+
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +16,7 @@ $row2 = select_list($sql2);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Admin Dashboard</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -54,33 +54,33 @@ $row2 = select_list($sql2);
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-                     <li class="text-center">
-                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
-                         <p>Xin chào :<?php echo $user['username'] ?> !</p>
-                     </li>
-                     <li>
-                         <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                     </li>
-                     <li>
-                         <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
-                     </li>
-                     <li>
-                         <a class="active-menu" href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
-                     </li>
-                     <li>
-                         <a href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
-                     </li>
-                     <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
-                     </li>
-                     <li>
-                         <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
-                     </li>
-                     <li>
-                         <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
-                     </li>
-                 </ul>
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img src="assets/img/find_user.png" class="user-image img-responsive" />
+                        <p>Xin chào :<?php echo $user['username'] ?> !</p>
+                    </li>
+                    <li>
+                        <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
+                    </li>
+                    <li>
+                        <a href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
+                    </li>
+                    <li>
+                        <a href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                    </li>
+                    <li>
+                        <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
+                    </li>
+                    <li>
+                        <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
+                    </li>
+                </ul>
             </div>
 
         </nav>
@@ -89,7 +89,7 @@ $row2 = select_list($sql2);
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Chỉnh sửa thông tin phim</h2>
+                        <h2>Thêm phim mới</h2>
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
                 </div>
@@ -98,68 +98,63 @@ $row2 = select_list($sql2);
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <form method="post" action="editphim_exce.php">
-                            <input class="hidden" name="id_phim" value="<?php echo $row['id_phim']?>">
-                            <div class="form-group">
+                        <form method="POST" action="add_phim_exce.php" enctype="multipart/form-data" >
+                            <div class="form-group" >
                                 <label>Tên phim</label>
-                                <input name="tenphim" class="form-control" value="<?php echo $row['tenphim']?>" />
+                                <input class="form-control" name="tenphim" />
                             </div>
                             <div class="form-group">
                                 <label>Đạo diễn</label>
-                                <input name="daodien" class="form-control" value="<?php echo $row['daodien']?>" />
+                                <input class="form-control" name="daodien" />
                             </div>
                             <div class="form-group">
                                 <label>Diễn Viên</label>
-                                <input name="dienvien" class="form-control" value="<?php echo $row['dienvien']?>" />
+                                <input class="form-control" name="dienvien" />
                             </div>
                             <div class="form-group">
                                 <label>Thời lượng phim</label>
-                                <input name="thoiluong" class="form-control" value="<?php echo $row['thoiluongphim']?>" />
+                                <input class="form-control" name="thoiluongphim" />
                             </div>
                             <div class="form-group">
                                 <label>Năm sản xuất</label>
-                                <input name="namsx" class="form-control" value="<?php echo $row['namsanxuat']?>" />
+                                <input class="form-control" name="namsanxuat" />
                             </div>
                             <div class="form-group">
                                 <label>Nơi sản xuất</label>
-                                <input name="noisx" class="form-control" value="<?php echo $row['quocgia']?>" />
+                                <input class="form-control" name="quocgia" />
                             </div>
                             <div class="form-group">
                                 <label>Tags</label>
-                                <input name="tags" class="form-control" value="<?php echo $row['tags']?>" />
+                                <input class="form-control" name="tags" />
                             </div>
                             <div class="form-group">
                                 <label>Thể loại</label>
-                                <select name="theloai">
+                                <select name="idtheloai">
                                     <option>Tuỳ chọn</option>
-                                    <?php foreach ($row2 as $rs) { ?>
-                                        <option  value="<?php echo $rs['id_theloai'] ?>"><?php echo $rs['theloai'] ?></option>
+                                    <?php foreach ($row as $rs) { ?>
+                                        <option value="<?php echo $rs['id_theloai'] ?>"><?php echo $rs['theloai'] ?></option>
                                     <?php } ?>
 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Ảnh phim</label>
-                                <input name="hinhanh"  type="file" />
+                                <input type="file"  name="anhminhhoa" />
                             </div>
-
                             <div class="form-group">
                                 <label>Image nội dung phim</label>
-                                <input name="hinhanh"  type="file" />
+                                <input type="file" name="imagenoidung" />
                             </div>
                             <div class="form-group">
                                 <label>Nội dung phim</label>
-                                <textarea name="noidungphim" class="form-control" rows="10"><?php echo $row['thongtinphim']?></textarea>
+                                <textarea class="form-control" rows="6" name="thongtinphim"></textarea>
                             </div>
                             <input type="submit" class="btn btn-success" value="Thêm">
                             <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
                         </form>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
 
@@ -171,7 +166,7 @@ $row2 = select_list($sql2);
     <script src="assets/js/jquery.metisMenu.js"></script>
     <script>
         function cancle() {
-            window.location = 'themphim.php';
+            window.location = 'quanliphim.php';
             return false;
         }
     </script>

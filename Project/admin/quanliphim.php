@@ -68,7 +68,7 @@ $row= select_list($sql);
                          <a  href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
                      </li>
                      <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
                          <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
@@ -93,7 +93,7 @@ $row= select_list($sql);
                     <hr />
                     <div class="row">
                         <div class="col-md-2">
-                            <a  href="themphim.php" class="btn btn-success">Thêm Phim Mới</a>
+                            <a  href="add_phim.php" class="btn btn-success">Thêm Phim Mới</a>
                         </div>
                     </div>
                     <br>
@@ -123,13 +123,13 @@ $row= select_list($sql);
                                               <?php foreach($row as $rs) { ?>
                                                   <tr>
                                                       <td><?php echo $rs['id_phim']?></td>
-                                                      <td><img src=".<?php echo $rs['anhminhhoa'] ?>" alt="" height="80" width="80"></td>
+                                                      <td><img src="<?php echo $rs['anhminhhoa'] ?>" alt="" height="80" width="80"></td>
                                                       <td><?php echo $rs['tenphim']?></td>
                                                       <td><?php echo substr ($rs['thongtinphim'],0,50)?>...</td>
                                                       <td><?php echo $rs['soluotxem']?></td>
                                                       <td><a href="" style="font-size: 20px;"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-                                                      <td><a style="font-size: 20px;" href="editphim.php?id_phim=<?php echo $rs['id_phim']?>"><i class="fa fa-edit" ></i></a></td>
-                                                      <td><a href="" style="font-size: 20px;color: red;"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                                      <td><a style="font-size: 20px;" href="edit_phim.php?id_phim=<?php echo $rs['id_phim']?>"><i class="fa fa-edit" ></i></a></td>
+                                                      <td><a style="font-size: 20px;color: brown; " href="delete_phim.php?id_phim=<?php echo $rs['id_phim']?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
                                                   </tr>
                                               <?php }?>
                                               </tbody>

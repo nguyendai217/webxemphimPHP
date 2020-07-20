@@ -1,7 +1,7 @@
 <?php 
-include('page/header.php');
-include('page/menu.php');
-include('page/slider.php');
+include('common/header.php');
+include('common/menu.php');
+include('common/slider.php');
 include('lib_db.php');
 
 $_get=isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
@@ -17,7 +17,20 @@ $update= exec_update($sql2);
         <video width="710" height="400" controls autoplay>
           <source src="<?php echo $row['linkphim']?>" type="video/mp4">
         </video>
+        <div style="text-align: center; margin-top: 30px;">
+        <h3>Chúc bạn có nhưng phút giây xem phim vui vẻ !</h3>  
+        <h4>Mọi chi tiết xin liên hệ : daint62@wru.vn</h4>
+        </div>
+        <div class="noidungphim">
+            <div class="imgheader">
+                <img src="image/noidungphim.png" alt="" />
+                <p><?php echo $row["thongtinphim"] ?></p>
+            </div>
+            <?php include("common/cungtheloai.php")?>
+        </div>
+        
+
       </div>
-      <?php require('page/sidebar.php') ?>
+      <?php require('common/sidebar.php') ?>
 </div>
-<?php require('page/footer.php')?>
+<?php require('common/footer.php')?>

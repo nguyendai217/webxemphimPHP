@@ -1,7 +1,7 @@
 <?php
 global $link;
 if(function_exists("data_to_sql_update")==FALSE){
-	function data_to_sql_update($tbl,$data){
+	function data_to_sql_update($tbl,$data,$cond){
 		if (!$tbl || !$data) return "";
 		$fields = array();
 		$vals = array();
@@ -9,7 +9,8 @@ if(function_exists("data_to_sql_update")==FALSE){
 			$vals[] = "{$k}=n'" . sql_str($v) . "'";
 		}
 		$vals = implode(",",$vals);
-		return "update {$tbl} set {$vals}";
+		if ($cond) $cond = " where {$cond}";
+		return "update {$tbl} set {$vals} {$cond}";
 	}
 }
 

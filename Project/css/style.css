@@ -514,6 +514,7 @@ left: 0px;} */
 }
 
 .img-phim .play img{
+    margin-left: 70px;
     width: 100px;
     height: 30px;
 }
@@ -546,8 +547,8 @@ left: 0px;} */
     height: 500px;
 }
 .ndphim .imgnd{
-    width: 98%;
-    height: 350px;
+    width: 100%;
+    height: 330px;
 }
 .binhluan{
     width: 100%;

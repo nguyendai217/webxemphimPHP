@@ -1,7 +1,7 @@
 <?php 
-include('page/header.php');
-include('page/menu.php');
-include('page/slider.php');
+include('common/header.php');
+include('common/menu.php');
+include('common/slider.php');
 include('lib_db.php');
 $search= $_GET['search'];
 $sql="select* from phim where tenphim like '%$search%' or dienvien like '%$search%' or tags like '%$search%'";
@@ -16,7 +16,7 @@ $result= select_list($sql);
       </div>
       <?php foreach($result as $rs) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"> <img src="<?php echo $rs["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"> <img src="admin/<?php echo $rs1["anhminhhoa"] ?> " alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs["thoiluongphim"] ?></p>
@@ -28,8 +28,8 @@ $result= select_list($sql);
       <?php }?>
     </div>
   </div>
-    <?php include('page/sidebar.php'); ?>
+    <?php include('common/sidebar.php'); ?>
   </div>
   <?php
-  include('page/footer.php');
+  include('common/footer.php');
   ?>

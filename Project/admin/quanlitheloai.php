@@ -65,7 +65,7 @@ $row= select_list($sql);
                          <a  href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
                      </li>
                      <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
                          <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
@@ -92,7 +92,7 @@ $row= select_list($sql);
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <h4 style="color: green;">Thêm thể loại</h4>
-            <form method="POST" action="addtheloai.php">
+            <form method="POST" action="add_theloai.php">
             <input style="height: 34px;width: 250px;" type="text" name="theloai" placeholder="Tên thể loại..">
             <input type="submit" class="btn btn-success" value="Thêm" >
             </form>
@@ -123,8 +123,8 @@ $row= select_list($sql);
                                 <tr>
                                   <td><?php echo $rs['id_theloai']?></td>
                                   <td><?php echo $rs['theloai']?></td>
-                                  <td><a style="font-size: 20px;" href="edittheloai.php?id_theloai=<?php echo $rs['id_theloai']?>"><i class="fa fa-pencil-square-o"></i></a></td>
-                                  <td><a style="font-size: 20px;color: brown; " href="xoatheloai.php?id_theloai=<?php echo $rs['id_theloai']?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>   
+                                  <td><a style="font-size: 20px;" href="edit_theloai.php?id_theloai=<?php echo $rs['id_theloai']?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                                  <td><a style="font-size: 20px;color: brown; " href="delete_theloai.php?id_theloai=<?php echo $rs['id_theloai']?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>   
                               </tr>
                               <?php 
                             }?>

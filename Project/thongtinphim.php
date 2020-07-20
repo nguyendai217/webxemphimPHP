@@ -1,6 +1,6 @@
-<?php include('page/header.php') ?>
-<?php include('page/menu.php') ?>
-<?php include('page/slider.php') ?>
+<?php include('common/header.php') ?>
+<?php include('common/menu.php') ?>
+<?php include('common/slider.php') ?>
 <?php include('lib_db.php') ?>
 <?php
 $phim = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
@@ -16,25 +16,24 @@ $row = select_one($sql);
             </div>
             <div class="chitiet">
                 <div class="img-phim">
-                    <img src="<?php echo $row["anhminhhoa"] ?>" alt="">
+                    <img src="admin/<?php echo $row["anhminhhoa"] ?>">
                     <div class="clear-both"></div>
                     <div class="play">
                         <a href="xemphim.php?id_phim=<?php echo $row["id_phim"] ?>"><img src="image/xemphim.png" alt=""></a>
-                        <a href="#"><img src="image/trailer.png" alt=""></a>
                     </div>
                 </div>
 
                 <div class="thongtinphim">
-                    <h4 style="margin-top: 5px;margin-left: 10px;">Tên phim : <?php echo $row["tenphim"] ?></h4>
-                    <span>Diễn Viên : <?php echo $row["dienvien"] ?></span><br>
+                    <h4 style="margin-top: 5px;margin-left: 10px;">Tên phim: <?php echo $row["tenphim"] ?></h4>
+                    <span>Diễn Viên: <?php echo $row["dienvien"] ?></span><br>
                     <span>Thời gian: <?php echo $row["thoiluongphim"] ?></span><br>
                     <span>Views: <?php echo $row["soluotxem"] ?></span><br>
                     <span>Thể Loại: <?php echo $row["theloai"] ?></span><br>
-                    <span>Đánh giá : 4 sao</span><br>
-                    <span>Quốc gia : <?php echo $row["quocgia"] ?></span><br>
+                    <span>Đánh giá: 4 sao</span><br>
+                    <span>Quốc gia: <?php echo $row["quocgia"] ?></span><br>
                     <span>Độ phân giải: FullHD</span><br>
                     <span>Năm phát hành: <?php echo $row["namsanxuat"] ?></span><br>
-                    <span>Ngôn ngữ : Phụ đề</span><br>
+                    <span>Ngôn ngữ: Phụ đề</span><br>
                     <span>Tags : <?php echo $row["tags"] ?></span><br>
                 </div>
             </div>
@@ -46,14 +45,14 @@ $row = select_one($sql);
             </div>
             <div class="ndphim">
                 <p><?php echo $row["thongtinphim"] ?></p>
-                <img src="<?php echo $row["imagenoidung"] ?>" alt="" class="imgnd">
+                <img src="admin/<?php echo $row["imagenoidung"] ?>" alt="" class="imgnd">
             </div>
             <div class="binhluan">
                 Bình luận
             </div>
-            <?php include("page/cungtheloai.php")?>
+            <?php include("common/cungtheloai.php")?>
         </div>
     </div>
-    <?php include("page/sidebar.php") ?>
+    <?php include("common/sidebar.php") ?>
 </div>
-<?php require('page/footer.php'); ?>
+<?php require('common/footer.php'); ?>

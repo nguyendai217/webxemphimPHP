@@ -67,7 +67,7 @@ $row= select_one($sql);
                          <a href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
                      </li>
                      <li>
-                         <a href="themphim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
                      </li>
                      <li>
                          <a class="active-menu" href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
@@ -119,8 +119,8 @@ $row= select_one($sql);
                                 <label >Role</label>
                                 <select name="role">
                                     <option>Tùy chọn</option>
-                                    <option value="1">Admin</option>
-                                    <option value="0">User</option>
+                                    <option value="1" <?php if($row["role"]==1) echo 'selected';?> >Admin</option>
+                                    <option value="0" <?php if($row["role"]==0) echo 'selected';?>  >User</option>
                                 </select>
                             </div>
                             <input type="submit" class="btn btn-success" value="Thêm">
@@ -128,6 +128,7 @@ $row= select_one($sql);
                         </form>
                      </div>
                  </div>
+            </div>
         </div>          
     </div>
     </div>

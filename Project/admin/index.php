@@ -127,7 +127,7 @@
                              <span class="icon-box bg-color-blue set-icon">
                                  <i class="fa fa-plus-circle"></i>
                              </span>
-                             <a href="themphim.php" class="text">Thêm phim mới</a>
+                             <a href="add_phim.php" class="text">Thêm phim mới</a>
                          </div>
                      </div>
                      <div class="col-md-3 col-sm-6 col-xs-6">
@@ -141,9 +141,9 @@
                      <div class="col-md-3 col-sm-6 col-xs-6">
                          <div class="panel panel-back noti-box">
                              <span class="icon-box bg-color-red set-icon">
-                                 <i class="fa fa-film"></i>
+                                 <i class="fa fa-upload"></i>
                              </span>
-                             <a href="themphim.php" class="text">Thêm phim mới</a>
+                             <a href="uploadimage.php" class="text">Upload</a>
                          </div>
                      </div>
                      <div class="col-md-3 col-sm-6 col-xs-6">

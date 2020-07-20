@@ -18,7 +18,7 @@ $row3= select_list($sql3);
       </div>
       <?php foreach($row as $rs1) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs1['id_phim'] ?>"> <img src="<?php echo $rs1["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs1['id_phim'] ?>"> <img src="admin/<?php echo $rs1["anhminhhoa"] ?> " alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs1["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs1["thoiluongphim"] ?></p>
@@ -36,7 +36,7 @@ $row3= select_list($sql3);
       </div>
       <?php foreach($row2 as $rs2) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs2['id_phim'] ?>"> <img src="<?php echo $rs2["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs2['id_phim'] ?>"> <img src="admin/<?php echo $rs2["anhminhhoa"] ?> " alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs2["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs2["thoiluongphim"] ?></p>
@@ -55,7 +55,7 @@ $row3= select_list($sql3);
       </div>
       <?php foreach($row3 as $rs3) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs3['id_phim'] ?>"> <img src="<?php echo $rs3["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs3['id_phim'] ?>"> <img src="admin/<?php echo $rs3["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs3["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs3["thoiluongphim"] ?></p>
@@ -67,5 +67,5 @@ $row3= select_list($sql3);
       <?php }?>
     </div>
   </div>
-    <?php include('page/sidebar.php'); ?>
+    <?php include('common/sidebar.php'); ?>
   </div>

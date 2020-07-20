@@ -1,9 +1,9 @@
 <?php 
-include('page/header.php');
-include('page/menu.php');
-include('page/slider.php');
+include('common/header.php');
+include('common/menu.php');
+include('common/slider.php');
 include('lib_db.php');
-$sql="select * from phim ORDER by soluotxem desc limit 0,8";
+$sql="select * from phim ORDER by soluotxem desc limit 0,12";
 $result= select_list($sql);
 ?>
 <div class="main">
@@ -11,11 +11,10 @@ $result= select_list($sql);
     <div class="group-phim">
       <div class="imgheader">
         <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> PHIM HOT</h5>
-        
       </div>
       <?php foreach($result as $rs) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"> <img src="<?php echo $rs["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"> <img src="admin/<?php echo $rs["anhminhhoa"] ?>" alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs["thoiluongphim"] ?></p>
@@ -27,8 +26,8 @@ $result= select_list($sql);
       <?php }?>
     </div>
   </div>
-    <?php include('page/sidebar.php'); ?>
+    <?php include('common/sidebar.php'); ?>
   </div>
   <?php
-  include('page/footer.php');
+  include('common/footer.php');
   ?>
