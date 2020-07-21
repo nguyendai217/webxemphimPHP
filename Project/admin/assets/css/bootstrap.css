@@ -4765,6 +4765,7 @@ a.list-group-item-danger.active:focus {
   padding: 15px;
 }
 .panel-heading {
+  font-size: 18px;
   color: red;
   text-align: center;
   padding: 10px 15px;

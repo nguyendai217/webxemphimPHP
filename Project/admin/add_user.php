@@ -83,7 +83,7 @@ $user = checkLoggedUser();
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Thêm phim mới</h2>
+                        <h2>Thêm user mới</h2>
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
                 </div>

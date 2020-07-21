@@ -4,8 +4,23 @@ include("../login/checklogin.php");
 session_start();
 $user = checkLoggedUser();
 
-$sql= "select*from phim";
-$row= select_list($sql);
+$numpage = 1;
+$id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : "";
+$id = 1;
+$limit = 5;
+
+$page = isset($_REQUEST["page"]) ? $_REQUEST["page"] : 0;
+if ($page < 1) $page = 1;
+$offset = ($page - 1) * $limit;
+$baseUrl = 'quanliphim.php?page=';
+
+$sql = "select*from phim limit $offset,$limit";
+$row = select_list($sql);
+
+$sql1 = "select count(*) as count from phim";
+$result = select_one($sql1);
+$total = $result['count'];
+$numPage = ceil($total / $limit);
 
 ?>
 
@@ -44,39 +59,38 @@ $row= select_list($sql);
                       float: right;
                       border-radius: 2px;
                       font-size: 16px;">
-                    <a href="logout.php" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out"
-                            aria-hidden="true"></i></a>
+                    <a href="logout.php" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                 </div>
             </nav>
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                     <li class="text-center">
-                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
-                         <p>Xin chào :<?php echo $user['username'] ?> !</p>
-                     </li>
-                     <li>
-                         <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                     </li>
-                     <li>
-                         <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
-                     </li>
-                     <li>
-                         <a class="active-menu" href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
-                     </li>
-                     <li>
-                         <a  href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
-                     </li>
-                     <li>
-                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
-                     </li>
-                     <li>
-                         <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
-                     </li>
-                     <li>
-                         <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
-                     </li>
-                 </ul>
+                    <ul class="nav" id="main-menu">
+                        <li class="text-center">
+                            <img src="assets/img/find_user.png" class="user-image img-responsive" />
+                            <p>Xin chào :<?php echo $user['username'] ?> !</p>
+                        </li>
+                        <li>
+                            <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
+                        </li>
+                        <li>
+                            <a class="active-menu" href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
+                        </li>
+                        <li>
+                            <a href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
+                        </li>
+                        <li>
+                            <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                        </li>
+                        <li>
+                            <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
+                        </li>
+                        <li>
+                            <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
+                        </li>
+                    </ul>
                 </div>
 
             </nav>
@@ -93,52 +107,60 @@ $row= select_list($sql);
                     <hr />
                     <div class="row">
                         <div class="col-md-2">
-                            <a  href="add_phim.php" class="btn btn-success">Thêm Phim Mới</a>
+                            <a href="add_phim.php" class="btn btn-success">Thêm Phim Mới</a>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-12">
                             <!--   Kitchen Sink -->
-                              <div class="panel panel-default">
-                                  <div class="panel-heading">
-                                      Danh sách phim
-                                  </div>
-                                  <div class="panel-body">
-                                      <div class="table-responsive">
-                                          <table class="table table-striped table-bordered table-hover" >
-                                              <thead>
-                                                  <tr>
-                                                      <th>ID</th>
-                                                      <th>Hình ảnh</th>
-                                                      <th>Tên Phim</th>
-                                                      <th>Nội dung</th>
-                                                      <th>Số lượt xem</th>
-                                                      <th>Chi tiết</th>
-                                                      <th>Sửa</th>
-                                                      <th>Xóa</th>
-                                                  </tr>
-                                              </thead>
-                                              <tbody style="text-align: center;">
-                                              <?php foreach($row as $rs) { ?>
-                                                  <tr>
-                                                      <td><?php echo $rs['id_phim']?></td>
-                                                      <td><img src="<?php echo $rs['anhminhhoa'] ?>" alt="" height="80" width="80"></td>
-                                                      <td><?php echo $rs['tenphim']?></td>
-                                                      <td><?php echo substr ($rs['thongtinphim'],0,50)?>...</td>
-                                                      <td><?php echo $rs['soluotxem']?></td>
-                                                      <td><a href="" style="font-size: 20px;"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-                                                      <td><a style="font-size: 20px;" href="edit_phim.php?id_phim=<?php echo $rs['id_phim']?>"><i class="fa fa-edit" ></i></a></td>
-                                                      <td><a style="font-size: 20px;color: brown; " href="delete_phim.php?id_phim=<?php echo $rs['id_phim']?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
-                                                  </tr>
-                                              <?php }?>
-                                              </tbody>
-                                          </table>
-                                      </div>
-                                  </div>
-                              </div>
-                               <!-- End  Kitchen Sink -->
-                          </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Danh sách phim
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Hình ảnh</th>
+                                                    <th>Tên Phim</th>
+                                                    <th>Nội dung</th>
+                                                    <th>Số lượt xem</th>
+                                                    <th>Chi tiết</th>
+                                                    <th>Sửa</th>
+                                                    <th>Xóa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align: center;">
+                                                <?php foreach ($row as $rs) { ?>
+                                                    <tr>
+                                                        <td><?php echo $rs['id_phim'] ?></td>
+                                                        <td><img src="<?php echo $rs['anhminhhoa'] ?>" alt="" height="80" width="80"></td>
+                                                        <td><?php echo $rs['tenphim'] ?></td>
+                                                        <td><?php echo substr($rs['thongtinphim'], 0, 50) ?>...</td>
+                                                        <td><?php echo $rs['soluotxem'] ?></td>
+                                                        <td><a style="font-size: 20px;" href="chitietphim.php?id_phim=<?php echo $rs['id_phim'] ?>"><i class="fa fa-info-circle"></i></a></td>
+                                                        <td><a style="font-size: 20px;" href="edit_phim.php?id_phim=<?php echo $rs['id_phim'] ?>"><i class="fa fa-edit"></i></a></td>
+                                                        <td><a style="font-size: 20px;color: brown; " href="delete_phim.php?id_phim=<?php echo $rs['id_phim'] ?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="container" style="margin-left: 430px;margin-top: -10px;">
+                                            <ul class="pagination">
+                                                <?php if ($numPage > 1) for ($i = 1; $i <= $numPage; $i++) { ?>
+                                                    <li class="page-item <?php if($page==$i) echo "active"?> "><a class="page-link" href="<?php echo $baseUrl.$i ?>"><?php echo $i?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End  Kitchen Sink -->
+                        </div>
                     </div>
 
                 </div>
@@ -148,19 +170,19 @@ $row= select_list($sql);
         </div>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
         <script>
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $('#dataTables-example').dataTable();
             });
-    </script>
-         <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+        </script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"></script>
 
 
 </body>

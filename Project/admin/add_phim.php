@@ -98,8 +98,8 @@ $row = select_list($sql);
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <form method="POST" action="add_phim_exce.php" enctype="multipart/form-data" >
-                            <div class="form-group" >
+                        <form method="POST" action="add_phim_exce.php" enctype="multipart/form-data">
+                            <div class="form-group">
                                 <label>Tên phim</label>
                                 <input class="form-control" name="tenphim" />
                             </div>
@@ -139,7 +139,7 @@ $row = select_list($sql);
                             </div>
                             <div class="form-group">
                                 <label>Ảnh phim</label>
-                                <input type="file"  name="anhminhhoa" />
+                                <input type="file" name="anhminhhoa" />
                             </div>
                             <div class="form-group">
                                 <label>Image nội dung phim</label>

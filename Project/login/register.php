@@ -19,10 +19,18 @@
         <h2 class="login-title">- Please Register -</h2>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form>
+                <form action="register_exce.php" method="POST">
                     <div class="input-group login-userinput">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                        <input id="txtUser" type="text" class="form-control" name="Email" placeholder="Email">
+                        <input id="txtUser" type="text" class="form-control" name="hoten" placeholder="Họ Tên">
+                    </div>
+                    <div class="input-group login-userinput">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input id="txtUser" type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="input-group login-userinput">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                        <input id="txtUser" type="text" class="form-control" name="email" placeholder="Email">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
@@ -33,19 +41,9 @@
                                     class="glyphicon glyphicon-eye-open"></i></button>
                         </span>
                     </div>
-                    <div class="input-group repass">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input id="txtPassword" type="password" class="form-control" name="password"
-                            placeholder="Nhập lại mật khẩu">
-                        <span id="showPassword" class="input-group-btn">
-                            <button class="btn btn-default reveal" type="button"><i
-                                    class="glyphicon glyphicon-eye-open"></i></button>
-                        </span>
-                    </div>
-                    <button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-sign-in"></i>
-                        Đăng kí</button>
+                    <input class="btn btn-primary btn-block login-button" type="submit" value="Đăng kí"></input>
                     <div class="checkbox login-options">
-                        <a href="login.html" class="login-forgot">Đă có tài khoản, đăng nhập ngay ?</a>
+                        <a href="login.php" class="login-forgot">Đă có tài khoản, đăng nhập ngay ?</a>
                     </div>
                 </form>
             </div>

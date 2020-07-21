@@ -143,6 +143,10 @@ $row2 = select_list($sql2);
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label>LinkPhim</label>
+                                <input name="linkphim" class="form-control" value="<?php echo $row['linkphim'] ?>" />
+                            </div>
+                            <div class="form-group">
                                 <label>Nội dung phim</label>
                                 <textarea name="thongtinphim" class="form-control" rows="10"><?php echo $row['thongtinphim'] ?></textarea>
                             </div>

@@ -7,21 +7,23 @@ $user = checkLoggedUser();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-      <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin Template : Binary Admin</title>
-	<!-- BOOTSTRAP STYLES-->
+    <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
+    <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
+    <!-- MORRIS CHART STYLES-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+    <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+
 <body>
     <div id="wrapper">
         <div id="wrapper">
@@ -40,39 +42,38 @@ $user = checkLoggedUser();
                       float: right;
                       border-radius: 2px;
                       font-size: 16px;">
-                    <a href="#" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out"
-                            aria-hidden="true"></i></a>
+                    <a href="#" class="btn btn-success square-btn-adjust"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                 </div>
             </nav>
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                     <li class="text-center">
-                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
-                         <p>Xin chào :<?php echo $user['username'] ?> !</p>
-                     </li>
-                     <li>
-                         <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                     </li>
-                     <li>
-                         <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
-                     </li>
-                     <li>
-                         <a href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
-                     </li>
-                     <li>
-                         <a class="active-menu" href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
-                     </li>
-                     <li>
-                         <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
-                     </li>
-                     <li>
-                         <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
-                     </li>
-                     <li>
-                         <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
-                     </li>
-                 </ul>
+                    <ul class="nav" id="main-menu">
+                        <li class="text-center">
+                            <img src="assets/img/find_user.png" class="user-image img-responsive" />
+                            <p>Xin chào :<?php echo $user['username'] ?> !</p>
+                        </li>
+                        <li>
+                            <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="quanlitheloai.php"><i class="fa fa-book fa-3x"></i> Quản lí thể loại</a>
+                        </li>
+                        <li>
+                            <a href="quanliphim.php"><i class="fa fa-film fa-3x"></i> Quản lí phim</a>
+                        </li>
+                        <li>
+                            <a class="active-menu" href="quanlibinhluan.php"><i class="fa fa-comments fa-3x"></i>Quản lí bình luận </a>
+                        </li>
+                        <li>
+                            <a href="add_phim.php"><i class="fa fa-plus fa-3x"></i> Thêm phim mới</a>
+                        </li>
+                        <li>
+                            <a href="quanliusers.php"><i class="fa fa-user fa-3x"></i> Quản lí users </a>
+                        </li>
+                        <li>
+                            <a href="../index.php"><i class="fa fa-home fa-3x"></i> Trở về trang chủ </a>
+                        </li>
+                    </ul>
                 </div>
 
             </nav>
@@ -87,7 +88,7 @@ $user = checkLoggedUser();
                     </div>
                     <!-- /. ROW  -->
                     <hr />
-                    
+
 
                 </div>
                 <!-- /. PAGE INNER  -->
@@ -96,16 +97,17 @@ $user = checkLoggedUser();
         </div>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    
+        <!-- JQUERY SCRIPTS -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"></script>
+
 </body>
+
 </html>

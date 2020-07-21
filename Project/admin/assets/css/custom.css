@@ -362,6 +362,11 @@ font-size: 12px;
 line-height: 1.428571429;
 }
 
+.imgphim img{
+    width: 300px;
+    height: 400px;
+}
+
 /*==============================================
     MEDIA QUERIES     
     =============================================*/
@@ -383,8 +388,7 @@ line-height: 1.428571429;
 
    .navbar {
  border-radius: 0px; 
-}
-   
+}  
 }
 
 

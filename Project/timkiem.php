@@ -16,7 +16,7 @@ $result= select_list($sql);
       </div>
       <?php foreach($result as $rs) {?>
         <div class="motphim">
-          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"> <img src="admin/<?php echo $rs1["anhminhhoa"] ?> " alt="" class="hvr-shrink" /></a>
+          <a href="thongtinphim.php?id_phim=<?php echo $rs['id_phim'] ?>"><img src="admin/<?php echo $rs["anhminhhoa"] ?> " alt="" class="hvr-shrink" /></a>
           <div class="thongtin">
             <a href=""><?php echo $rs["tenphim"] ?></a><br />
             <p>Thời gian: <?php echo $rs["thoiluongphim"] ?></p>

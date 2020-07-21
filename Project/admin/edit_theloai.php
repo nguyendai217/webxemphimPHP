@@ -93,7 +93,7 @@ $row= select_one($sql);
                  <div class="row">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
-                        <form action="edittheloai_exec.php" method="POST">
+                        <form action="edit_theloai_exec.php" method="POST">
                             <div class="form-group">
                                 <label >Tên Thể Loại</label>
                                 <input class="hidden" name="id_theloai" value="<?php echo $row['id_theloai']?>">
