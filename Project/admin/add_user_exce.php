@@ -24,6 +24,7 @@ $data["email"] = $email;
 $data["role"] = $role;
 
 $sql = data_to_sql_insert($tbl, $data);
+//print_r($sql);
 //Thuc thi sql
 $ret = exec_update($sql);
 header("Location:quanliusers.php");

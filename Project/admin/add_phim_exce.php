@@ -21,6 +21,7 @@ $linkphim = isset($_REQUEST["linkphim"]) ? $_REQUEST["linkphim"] : "";
 $soluotxem = isset($_REQUEST["soluotxem"]) ? $_REQUEST["soluotxem"] : "";
 
 $tbl = "phim";
+// tao mang luu tru dl
 $data = array();
 $data["tenphim"] = $tenphim;
 $data["daodien"] = $daodien;
@@ -37,6 +38,7 @@ $data["anhminhhoa"] = $img;
 $data["imagenoidung"] = $img1;
 
 $sql = data_to_sql_insert($tbl, $data);
+//print_r($sql);
 //Thuc thi sql
 $ret = exec_update($sql);
 header("Location:quanliphim.php");

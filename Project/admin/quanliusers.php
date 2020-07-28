@@ -3,7 +3,20 @@ include("../lib_db.php");
 include("../login/checklogin.php");
 session_start();
 $user = checkLoggedUser();
-$sql = "select*from users";
+
+
+$limit = 5;
+$page = isset($_REQUEST["page"]) ? $_REQUEST["page"] : 0;
+if ($page < 1) $page = 1;
+$offset = ($page - 1) * $limit;
+$baseUrl = 'quanliusers.php?page=';
+
+$sql1 = "select count(*) as count from users";
+$result = select_one($sql1);
+$total = $result['count'];
+$numPage = ceil($total / $limit);
+
+$sql = "select*from users limit $offset,$limit";
 $row = select_list($sql);
 
 ?>
@@ -13,7 +26,7 @@ $row = select_list($sql);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Quản lí user</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -83,7 +96,7 @@ $row = select_list($sql);
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Quản lí Users</h2>
-                            <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                            <h5>Welcome Admin, Love to see you back. </h5>
                         </div>
                     </div>
                     <!-- /. ROW  -->
@@ -136,6 +149,13 @@ $row = select_list($sql);
                                                 } ?>
                                             </tbody>
                                         </table>
+                                        <div class="container" style="margin-left: 430px;margin-top: -25px;">
+                                            <ul class="pagination">
+                                                <?php if ($numPage > 1) for ($i = 1; $i <= $numPage; $i++) { ?>
+                                                    <li class="page-item <?php if($page==$i) echo "active"?> "><a class="page-link" href="<?php echo $baseUrl.$i ?>"><?php echo $i?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

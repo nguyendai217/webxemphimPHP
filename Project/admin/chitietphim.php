@@ -14,7 +14,7 @@ $row = select_one($sql);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Chi tiết phim</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -85,7 +85,7 @@ $row = select_one($sql);
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Thông tin phim</h2>
-                            <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                            <h5>Welcome Admin, Love to see you back. </h5>
                         </div>
                     </div>
                     <!-- /. ROW  -->
@@ -93,9 +93,9 @@ $row = select_one($sql);
                     <div class="row">
                         <div class="col-md-4">
                             <div class="imgphim">
-                            <img src="<?php echo $row['anhminhhoa'] ?>">
+                                <img src="<?php echo $row['anhminhhoa'] ?>">
                             </div>
-                            
+
                         </div>
                         <div class="col-md-6">
                             <label>Tên Phim:</label> <?php echo $row['tenphim'] ?> <br>
@@ -114,18 +114,15 @@ $row = select_one($sql);
             </div>
             <!-- /. PAGE WRAPPER  -->
         </div>
-        <!-- /. WRAPPER  -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
-        <script src="assets/js/jquery-1.10.2.js"></script>
-        <!-- BOOTSTRAP SCRIPTS -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <!-- METISMENU SCRIPTS -->
-        <script src="assets/js/jquery.metisMenu.js"></script>
-        <!-- CUSTOM SCRIPTS -->
-        <script src="assets/js/custom.js"></script>
+    </div>
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
 
 </body>
 

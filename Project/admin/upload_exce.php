@@ -6,7 +6,7 @@ $target_file   = $target_dir . basename($_FILES["fileupload"]["name"]);
 $allowUpload   = true;
 //Lấy phần mở rộng của file
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$maxfilesize   = 800000; //(bytes)
+$maxfilesize   = 80000; //(bytes)
 ////Những loại file được phép upload
 $allowtypes    = array('jpg', 'png', 'jpeg', 'gif');
 

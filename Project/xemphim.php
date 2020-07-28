@@ -17,9 +17,10 @@ $update= exec_update($sql2);
         <video width="710" height="400" controls autoplay>
           <source src="<?php echo $row['linkphim']?>" type="video/mp4">
         </video>
-        <div style="text-align: center; margin-top: 30px;">
-        <h3>Chúc bạn có nhưng phút giây xem phim vui vẻ !</h3>  
+        <div style="text-align: center; margin-top: 20px;border-bottom: 1px solid black;">
+        <h3>Chúc bạn có những phút giây xem phim vui vẻ !</h3>  
         <h4>Mọi chi tiết xin liên hệ : daint62@wru.vn</h4>
+
         </div>
         <div class="noidungphim">
             <div class="imgheader">

@@ -83,7 +83,7 @@ $row = select_list($sql);
         <div class="row">
           <div class="col-md-12">
             <h2>Quản lí thể loại</h2>
-            <h5>Welcome Jhon Deo , Love to see you back. </h5>
+            <h5>Welcome Admin, Love to see you back. </h5>
           </div>
         </div>
         <!-- /. ROW  -->

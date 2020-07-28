@@ -35,3 +35,26 @@ $("#btnlogin").on('click',function(){
     //     window.location.href="../admin/index.html"
     // }
 });
+
+$('#btncomment').click(function(){
+    alert("sacsc");
+    var comment=$('#comment').val();
+    if(typeof id_user != "undefined"){
+        $.ajax({
+            //url: '../comment_exce.php',
+            type: 'POST',
+            data: {
+                binhluan: comment,
+                id_user: id_user,
+                id_phim: id_phim
+            },
+            success: function(response){
+                if (response==1) {
+                    window.location.reload();
+                }
+            }
+        });
+    }else{
+        alert("Bạn phải đăng nhập để có thể bình luận.");
+    }
+});

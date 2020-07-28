@@ -1,12 +1,12 @@
 <?php 
 include('./lib_db.php');
-$sql= "Select* from theloai";
+$sql= "Select*from theloai limit 0,8";
 $result= select_list($sql);
 
-$sql1="select *from phim ORDER by soluotxem desc limit 0,4";
+$sql1="select*from phim ORDER by soluotxem desc limit 0,4";
 $result1= select_list($sql1);
 
-$sql2="select *from phim ORDER by id_phim desc limit 0,4";
+$sql2="select*from phim ORDER by id_phim desc limit 0,4";
 $result2= select_list($sql2);
 ?>
 <div class="main-right">

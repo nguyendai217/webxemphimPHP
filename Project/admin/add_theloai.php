@@ -5,9 +5,13 @@ session_start();
 $user = checkLoggedUser();
 //get input
 $theloai = isset($_REQUEST["theloai"]) ? $_REQUEST["theloai"] : "";
+
+$tbl="theloai";
+$data['theloai']=$theloai;
+
 //tao sql
-$sql = "insert into theloai(theloai) value('{$theloai}') ";
-//echo "sql=[$sql]"; exit();
+$sql = data_to_sql_insert($tbl,$data);
+//print_r($sql);
 //Thuc thi sql
 $ret = exec_update($sql);
 header("Location:quanlitheloai.php");

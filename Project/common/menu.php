@@ -1,12 +1,12 @@
 <?php
 include("./lib_db.php");
-$sql = "Select * from theloai"; 
+$sql = "Select * from theloai limit 0,6"; 
 $result = select_list($sql);
 ?>
 <div class="menu-flim">
   <nav class="menu">
     <ul>
-      <li class="current-item"><a href="index.php">Trang chủ</a></li>
+      <li class="current-item"><a href="index.php"><i class="fa fa-home"></i> Trang chủ</a></li>
       <li>
         <a href="#">Thể loại<span class="arrow">&#9660;</span></a>
         <ul class="sub-menu">
@@ -17,23 +17,8 @@ $result = select_list($sql);
         }?>
         </ul>
       </li>
-      <li><a href="#">Năm sản xuất<span class="arrow">&#9660;</span></a>
-        <ul class="sub-menu">
-          <li><a href="#">2020</a></li>
-          <li><a href="#">2019</a></li>
-          <li><a href="#">2018</a></li>
-          <li><a href="#">2017</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Quốc gia<span class="arrow">&#9660;</span></a>
-        <ul class="sub-menu">
-          <li><a href="#">Phim Mỹ</a></li>
-          <li><a href="#">Phim Trung Quốc</a></li>
-          <li><a href="#">Phim Việt Nam</a></li>
-          <li><a href="#">Phim Hàn Quốc</a></li>
-        </ul>
-      </li>
-      <li><a href="phimhot.php">Phim Hot</a></li>
+      <li><a href="phimhot.php">Phim hot</a></li>
+      <li><a href="phimmoi.php">Phim mới</a></li>
       <li><a href="lienhe.php">Liên hệ</a></li>
     </ul>
   </nav>

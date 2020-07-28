@@ -12,7 +12,7 @@ $row= select_one($sql);
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Quản lí user</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -85,7 +85,7 @@ $row= select_one($sql);
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Chỉnh sửa Users</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>  
+                        <h5>Welcome Admin, Love to see you back. </h5>  
                     </div>
                 </div>
                  <!-- /. ROW  -->
@@ -123,7 +123,7 @@ $row= select_one($sql);
                                     <option value="0" <?php if($row["role"]==0) echo 'selected';?>  >User</option>
                                 </select>
                             </div>
-                            <input type="submit" class="btn btn-success" value="Thêm">
+                            <input type="submit" class="btn btn-success" value="Update">
                             <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
                         </form>
                      </div>

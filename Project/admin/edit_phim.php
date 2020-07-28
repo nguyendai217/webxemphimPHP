@@ -16,7 +16,7 @@ $row2 = select_list($sql2);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Chỉnh sửa phim</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -90,7 +90,7 @@ $row2 = select_list($sql2);
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Chỉnh sửa thông tin phim</h2>
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                        <h5>Welcome Admin, Love to see you back. </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -150,7 +150,7 @@ $row2 = select_list($sql2);
                                 <label>Nội dung phim</label>
                                 <textarea name="thongtinphim" class="form-control" rows="10"><?php echo $row['thongtinphim'] ?></textarea>
                             </div>
-                            <input type="submit" class="btn btn-success" value="Thêm">
+                            <input type="submit" class="btn btn-success" value="Update">
                             <input type="button" class="btn btn-danger" value="Hủy bỏ" onclick="return cancle();">
                         </form>
                     </div>

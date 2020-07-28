@@ -11,7 +11,7 @@ $result= select_list($sql);
   <div class="main-left">
     <div class="group-phim">
       <div class="imgheader">
-        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> THỂ LOẠI</h5>
+        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> TÌM KIẾM</h5>
         
       </div>
       <?php foreach($result as $rs) {?>

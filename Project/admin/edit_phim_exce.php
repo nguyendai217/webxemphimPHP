@@ -36,6 +36,9 @@ $data["linkphim"] = $linkphim;
 $data["soluotxem"] = $soluotxem;
 $cond = "id_phim={$id_phim}";
 $sql = data_to_sql_update($tbl, $data,$cond);
+//print_r($sql);
 //Thuc thi sql
 $ret = exec_update($sql);
 header("Location:quanliphim.php");
+exit();
+?>

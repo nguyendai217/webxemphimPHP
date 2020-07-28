@@ -8,21 +8,21 @@ $limit = 12;
 $page = isset($_REQUEST["page"]) ? $_REQUEST["page"] : 0;
 if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
-$baseUrl = 'phimhot.php?page=';
+$baseUrl = 'phimmoi.php?page=';
 
 $sql1 = "select count(*) as count from phim";
 $rs = select_one($sql1);
 $total = $rs['count'];
 $numPage = ceil($total / $limit);
 
-$sql = "select * from phim ORDER by soluotxem desc limit $offset,$limit";
+$sql = "select * from phim ORDER by id_phim desc limit $offset,$limit";
 $result = select_list($sql);
 ?>
 <div class="main">
   <div class="main-left">
     <div class="group-phim">
       <div class="imgheader">
-        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> PHIM HOT</h5>
+        <h5 style="margin: 5px 5px 5px 5px  ;"> <i class="fa fa-film" aria-hidden="true"></i> PHIM MỚI</h5>
       </div>
       <?php foreach ($result as $rs) { ?>
         <div class="motphim">

@@ -4,11 +4,11 @@ include("../login/checklogin.php");
 session_start();
 $user = checkLoggedUser();
 
-$numpage = 1;
-$id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : "";
-$id = 1;
-$limit = 5;
+// $numpage = 1;
+// $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : "";
+// $id = 1;
 
+$limit = 5;
 $page = isset($_REQUEST["page"]) ? $_REQUEST["page"] : 0;
 if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
@@ -100,7 +100,7 @@ $numPage = ceil($total / $limit);
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Quản lí phim</h2>
-                            <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                            <h5>Welcome Admin, Love to see you back. </h5>
                         </div>
                     </div>
                     <!-- /. ROW  -->
@@ -149,7 +149,7 @@ $numPage = ceil($total / $limit);
                                             </tbody>
                                         </table>
 
-                                        <div class="container" style="margin-left: 430px;margin-top: -10px;">
+                                        <div class="container" style="margin-left: 430px;margin-top: -25px;">
                                             <ul class="pagination">
                                                 <?php if ($numPage > 1) for ($i = 1; $i <= $numPage; $i++) { ?>
                                                     <li class="page-item <?php if($page==$i) echo "active"?> "><a class="page-link" href="<?php echo $baseUrl.$i ?>"><?php echo $i?></a></li>

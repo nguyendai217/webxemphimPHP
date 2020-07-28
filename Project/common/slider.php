@@ -3,16 +3,16 @@
     <div id="myCarousel" class="carousel slide border" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block" src="image/slider1.png" alt="Leopard" />
+          <img class="d-block" src="image/slider1.png" alt="" />
         </div>
         <div class="carousel-item">
-          <img class="d-block" src="image/silder2.png" alt="Cat" />
+          <img class="d-block" src="image/silder2.png" alt="" />
         </div>
         <div class="carousel-item">
-          <img class="d-block" src="image/slider3.png" alt="Lion" />
+          <img class="d-block" src="image/slider3.png" alt="" />
         </div>
         <div class="carousel-item">
-          <img class="d-block" src="image/slider4.png" alt="Lion" />
+          <img class="d-block" src="image/slider4.png" alt="" />
         </div>
       </div>
       <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

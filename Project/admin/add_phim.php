@@ -7,8 +7,6 @@ $user = checkLoggedUser();
 $sql = "select*from theloai";
 $row = select_list($sql);
 
-
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -90,7 +88,7 @@ $row = select_list($sql);
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Thêm phim mới</h2>
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                        <h5>Welcome Admin, Love to see you back. </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->

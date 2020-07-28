@@ -4,6 +4,23 @@ include("../login/checklogin.php");
 session_start();
 $user = checkLoggedUser();
 
+//phan trang
+$limit=5;
+$page= isset($_REQUEST['page'])? $_REQUEST['page']:0;
+if($page<1){
+    $page=1;
+}
+$offset= ($page-1)*$limit;
+
+$sql= "select * from binhluan,phim,users where binhluan.id_phim= phim.id_phim and binhluan.id_user= users.id_user limit $offset, $limit";
+$row= select_list($sql);
+
+$count= "select count(*) as count from binhluan";
+$result= select_one($count);
+$total= $result['count'];
+$numPage= ceil($total/$limit);
+
+$baseUrl='quanlibinhluan.php?page='
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +28,7 @@ $user = checkLoggedUser();
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>Quản lí bình luận</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -83,7 +100,48 @@ $user = checkLoggedUser();
                     <div class="row">
                         <div class="col-md-12">
                             <h2>Quản lí bình luận</h2>
-                            <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                            <h5>Welcome Admin, Love to see you back. </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Danh sách bình luận
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead style="text-align: center;">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Bộ phim</th>
+                                                <th>Nội dung bình luận</th>
+                                                <th>Người bình luận</th>
+                                                <th>Xóa bình luận</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="text-align: center;">
+                                            <?php foreach ($row as $rs) { ?>
+                                                <tr>
+                                                    <td><?php echo $rs['id_binhluan'] ?></td>
+                                                    <td><?php echo $rs['tenphim'] ?></td>
+                                                    <td><?php echo $rs['noidungbinhluan'] ?></td>
+                                                    <td><?php echo $rs['username'] ?></td>
+                                                    <td><a style="font-size: 20px;color: brown; " href="delete_binhluan.php?id_binhluan=<?php echo $rs['id_binhluan'] ?>" onClick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i class="fa fa-trash-o"></i></a></td>
+                                                </tr>
+                                            <?php
+                                            } ?>
+                                        </tbody>
+                                    </table>
+                                    <div class="container" style="margin-left: 430px;margin-top: -25px;">
+                                        <ul class="pagination">
+                                            <?php if ($numPage > 1) for ($i = 1; $i <= $numPage; $i++) { ?>
+                                                <li class="page-item <?php if ($page == $i) echo "active" ?> "><a class="page-link" href="<?php echo $baseUrl . $i ?>"><?php echo $i ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /. ROW  -->
@@ -95,11 +153,6 @@ $user = checkLoggedUser();
             </div>
             <!-- /. PAGE WRAPPER  -->
         </div>
-        <!-- /. WRAPPER  -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
         <script src="assets/js/jquery-1.10.2.js"></script>
         <!-- BOOTSTRAP SCRIPTS -->
         <script src="assets/js/bootstrap.min.js"></script>
