@@ -4,11 +4,11 @@ include('common/menu.php');
 include('common/slider.php');
 include('lib_db.php');
 
-$_get=isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
-$sql="Select * from phim where id_phim='$_get'";
+$id=isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
+$sql="Select * from phim where id_phim='$id'";
 $row= select_one($sql);
 
-$sql2="UPDATE phim SET soluotxem = soluotxem +1 WHERE id_phim='$_get'";
+$sql2="UPDATE phim SET soluotxem = soluotxem +1 WHERE id_phim='$id'";
 $update= exec_update($sql2);
 ?>
 <div class="main">

@@ -102,6 +102,10 @@ $row = select_list($sql);
                                 <input class="form-control" name="tenphim" />
                             </div>
                             <div class="form-group">
+                                <label>Link phim</label>
+                                <input class="form-control" name="linkphim" />
+                            </div>
+                            <div class="form-group">
                                 <label>Đạo diễn</label>
                                 <input class="form-control" name="daodien" />
                             </div>

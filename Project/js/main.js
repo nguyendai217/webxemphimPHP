@@ -1,6 +1,11 @@
 // login js
 window.onload = function(){
     $("#showPassword").hide();
+
+    // if($("#txtPassword").length<=3){
+    //     alert("Mat khau phai lon hơn 3 ki tu");
+    // }
+
 }
 
 $("#txtPassword").on('change',function() {  

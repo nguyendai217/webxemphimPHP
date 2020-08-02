@@ -18,7 +18,7 @@
         <h2 class="login-title">- Please Register -</h2>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form action="register_exce.php" method="POST">
+                <form  method="POST" id="action-form">
                     <div class="input-group login-userinput">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                         <input id="txtUser" type="text" class="form-control" name="hoten" placeholder="Họ Tên">
@@ -33,14 +33,12 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input id="txtPassword" type="password" class="form-control" name="password"
-                            placeholder="Password">
+                        <input id="txtPassword" type="password" class="form-control" name="password" placeholder="Password">
                         <span id="showPassword" class="input-group-btn">
-                            <button class="btn btn-default reveal" type="button"><i
-                                    class="glyphicon glyphicon-eye-open"></i></button>
+                            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
                         </span>
                     </div>
-                    <input class="btn btn-primary btn-block login-button" type="submit" value="Đăng kí"></input>
+                    <input id="btn-dangki" class="btn btn-primary btn-block login-button" type="submit" value="Đăng kí" onclick="checkpass()"></input>
                     <div class="checkbox login-options">
                         <a href="login.php" class="login-forgot">Đă có tài khoản, đăng nhập ngay ?</a>
                     </div>
@@ -49,6 +47,17 @@
         </div>
     </div>
     <script src="../js/main.js"></script>
+    <script>
+        function checkpass() {
+            var pass = $("#txtPassword").val();
+            if (pass.length <= 3) {
+                alert("Mat khau khong duoc it hon 3 ki tu");
+            }
+            else{
+                $("#action-form").attr("action","register_exce.php");
+            }
+        }
+    </script>
 </body>
 
 </html>

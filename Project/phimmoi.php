@@ -37,7 +37,6 @@ $result = select_list($sql);
         </div>
       <?php } ?>
 
-
       <div class="container" style="margin-left: 310px; float: left; margin-top: 8px;">
         <ul class="pagination">
           <?php if ($numPage > 1) for ($i = 1; $i <= $numPage; $i++) { ?>

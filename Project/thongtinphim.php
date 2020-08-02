@@ -1,14 +1,17 @@
-<?php include('common/header.php') ?>
-<?php include('common/menu.php') ?>
-<?php include('common/slider.php') ?>
-<?php include('lib_db.php') ?>
-<?php
+<?php 
+ include('common/header.php');
+ include('common/menu.php');
+ include('common/slider.php');
+ include('lib_db.php');
+ include('login/checklogin.php');
 //session_start();
-$user = getLoggedUser();
-$user = isset($_SESSION['user']);
-if ($user) {
-    $user = $_SESSION['user'];
+ //$user = checkLoggedUser();
+$user= isset($_SESSION['user']);
+if($user){
+  $user= $_SESSION['user'];
 }
+
+//print_r($user);
 
 $phim = isset($_REQUEST["id_phim"]) ? $_REQUEST["id_phim"] : 0;
 $sql = "Select *from phim,theloai where phim.id_theloai=theloai.id_theloai and phim.id_phim={$phim}";
@@ -35,6 +38,7 @@ $sqlfrom=" from binhluan,users,phim where binhluan.id_user=users.id_user and bin
 $sql2="select noidungbinhluan,username";
 $sql2 .=$sqlfrom;
 $sql2 .=" order by id_binhluan desc limit 0,4";
+
 
 //print_r($sql2);
 $result= select_list($sql2);
@@ -86,7 +90,14 @@ $result= select_list($sql2);
                     <form action="comment_exce.php" method="POST">
                     <img src="image/icon-login.png" alt="" style="width: 40px;height: 40px;">
                     <input name="id_phim" value="<?php echo $row["id_phim"] ?>" type="hidden">
-                    <input name="id_user" value="<?php echo $user['id_user']?>" type="hidden">
+
+                    <?php if($user){?>
+                    <input name="id_user" value="<?php echo $user['id_user']?>" type="hidden" id="id_user">
+                    <?php }?>
+
+                    <?php if(!$user) {?> 
+                        <input name="id_user" value="-1" type="hidden" id="id_user">
+                    <?php } ?>
                     <input type="text" style="width: 80%;" id="comment" name="binhluan">
                     <input type="submit" value="Bình luận"  id="btn-comment">
                     </form>
@@ -113,3 +124,11 @@ $result= select_list($sql2);
     <?php include("common/sidebar.php") ?>
 </div>
 <?php require('common/footer.php'); ?>
+<script>
+$("#btn-comment").click(function(){
+    var check= $("#id_user").val();
+    if(check==-1){
+        alert("Bạn phải đăng nhập trước khi bình luận !");
+    }
+})
+</script>

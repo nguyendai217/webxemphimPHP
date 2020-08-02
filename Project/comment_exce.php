@@ -13,7 +13,13 @@ $data["noidungbinhluan"]=$binhluan;
 
 $sql = data_to_sql_insert($tbl, $data);
 //Thuc thi sql
-$ret = exec_update($sql);
-header("Location:thongtinphim.php?id_phim={$id_phim}");
+//$ret = exec_update($sql);
+if($ret = exec_update($sql)){
+    header("Location:thongtinphim.php?id_phim={$id_phim}");
+}
+else{
+    echo "Bình luận thất bại, bạn phải đăng nhập trước!"; 
+    //header("Location:thongtinphim.php?id_phim={$id_phim}");
+}
 exit();
 ?>

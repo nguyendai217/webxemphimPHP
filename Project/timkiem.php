@@ -6,6 +6,11 @@ include('lib_db.php');
 $search= $_GET['search'];
 $sql="select* from phim where tenphim like '%$search%' or dienvien like '%$search%' or tags like '%$search%'";
 $result= select_list($sql);
+if(!$result){
+  echo '<script type="text/javascript">';
+  echo ' alert("Không có bộ phim nào phù hợp !")'; 
+  echo '</script>';
+}
 ?>
 <div class="main">
   <div class="main-left">

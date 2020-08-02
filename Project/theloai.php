@@ -4,7 +4,6 @@ include('common/menu.php');
 include('common/slider.php');
 include('lib_db.php');
 $tl = isset($_REQUEST["id_theloai"]) ? $_REQUEST["id_theloai"] : 0;
-//$tl=$_GET['id_theloai'];
 $sql="select* from phim where id_theloai={$tl}";
 $result= select_list($sql);
 
